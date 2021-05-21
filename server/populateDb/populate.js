@@ -11,7 +11,6 @@ mongoose.connect(
   },
   async () => {
     console.log("Starting populating DB...");
-    console.log("config", config);
     await populateDb.populate();
     await mongoose.connection.close();
 
