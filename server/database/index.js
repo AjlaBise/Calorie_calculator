@@ -6,7 +6,7 @@ require("./models/food");
 
 exports.connect = () => {
   mongoose.connect(
-    `${process.env.DB_UI}`,
+    `${process.env.DB_URI}`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
