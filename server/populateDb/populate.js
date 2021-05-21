@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
-const config = require("../config/dev");
 const populateDb = require("./populateDb");
 
 mongoose.connect(
-  config.DB_URI.DB_URI,
+    `${process.env.DB_UI}`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -12,10 +11,10 @@ mongoose.connect(
   },
   async () => {
     console.log("Starting populating DB...");
-    console.log("config",config);
+    console.log("config", config);
     await populateDb.populate();
     await mongoose.connection.close();
-    
+
     console.log("DB has been populated...");
   }
 );

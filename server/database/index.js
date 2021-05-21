@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const config = require("../config/dev");
 
 require("./models/meals");
 require("./models/user");
@@ -7,7 +6,7 @@ require("./models/food");
 
 exports.connect = () => {
   mongoose.connect(
-    config.DB_URI.DB_URI,
+    `${process.env.DB_UI}`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
