@@ -1,27 +1,24 @@
-var express = require("express");
-var { graphqlHTTP } = require("express-graphql");
-var { buildSchema } = require("graphql");
+const express = require("express");
+const next = require("next");
 
-var schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
+const port = parseInt(process.env.PORT, 10) || 3000;
+const dev = process.env.NODE_ENV !== "production";
+const app = next({ dev });
+const handle = app.getRequestHandler();
 
-var root = {
-  hello: () => {
-    return "Hello world!";
-  },
-};
+// Connect to DB
+const db = require("./server/database/index");
+db.connect();
 
-var app = express();
-app.use(
-  "/graphql",
-  graphqlHTTP({
-    schema: schema,
-    rootValue: root,
-    graphiql: true,
-  })
-);
-app.listen(3000);
-console.log("Running a GraphQL API server at http://localhost:3000/graphql");
+app.prepare().then(() => {
+  const server = express();
+
+  server.all("*", (req, res) => {
+    return handle(req, res);
+  });
+
+  server.listen(port, (err) => {
+    if (err) throw err;
+    console.log(`> Ready on http://localhost:${port}`);
+  });
+});
