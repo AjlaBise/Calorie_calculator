@@ -1,6 +1,4 @@
-
 const { food, user, meals } = require('./data');
-
 
 const User = require('../database/models/user');
 const Food = require('../database/models/food');
