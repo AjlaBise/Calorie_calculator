@@ -2,16 +2,16 @@ import styled from "styled-components";
 
 const Image = styled.img`
   display: flex;
-  margin-left: 5%;
+  margin-left: 7%;
   margin-top:2%;
-  height:80px;
+  height:70px;
 `;
 
 const Div = styled.div`
   width: 100%;
-  height: 120px;
-  background-color: #d6cbd3;
-  box-shadow: 0px 0px 60px 20px #b2b2b2;
+  height: 110px;
+  background-color: #082435;
+  box-shadow: 0px 0px 60px 20px #041623;
   display: flex;
   position: absolute;
   bottom: 0;

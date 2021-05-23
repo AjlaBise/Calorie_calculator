@@ -1,11 +1,5 @@
-import Header from '../components/Header/header';
-import Footer from '../components/Footer/footer';
-
 export default function Home() {
-  return (
-  <div>
-    <Header/>
-    <Footer/>
-  </div>
-  )
+  return <div>
+    <h1>Ovo je index</h1>
+  </div>;
 }
