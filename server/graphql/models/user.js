@@ -1,14 +1,14 @@
 class User {
-  // constructor(model) {
-  //   this.Model = model;
-  // }
+  constructor(model) {
+    this.Model = model;
+  }
+
+  async signUp(signUpData) {
+    return await this.Model.create(signUpData);
+  }
 
   signIn() {
     return "Signing In...";
-  }
-
-  signUp() {
-    return "Signing Up...";
   }
 
   signOut() {

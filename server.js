@@ -9,6 +9,8 @@ const nextApp = next({
   dir: __dirname,
 });
 
+require("./server/database").connect();
+
 async function main() {
   const app = express();
 

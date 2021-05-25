@@ -1,16 +1,18 @@
 const { ApolloServer, gql } = require("apollo-server-express");
 const { userMutations } = require("./resolvers/index");
-const { mongoose } = require("mongoose");
+const mongoose = require("mongoose");
+const { userTypes } = require("./types");
 
-const User = require("./models/user");
+const User = require("./models/User");
 
 const typeDefs = gql(`
+       ${userTypes}
        type Query {
          Hello: String
         }
         type Mutation {
+          signUp(input : signUpInput): String
           signIn: String
-          signUp: String
           signOut: String
       }`);
 
@@ -28,11 +30,9 @@ const resolvers = {
 module.exports = new ApolloServer({
   typeDefs,
   resolvers,
-  playground: true,
   context: () => ({
     models: {
-      User: new User(mongoose.model('User')),
+      User: new User(mongoose.model("User")),
     },
   }),
-  introspection: true,
 });
