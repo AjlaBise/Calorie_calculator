@@ -18,6 +18,7 @@ async function main() {
   app.listen(PORT, (err) => {
     if (err) throw err;
     console.log(`[ server ] ready on port ${PORT}`);
+    console.log(`http://localhost:${PORT}`)
   });
 }
 

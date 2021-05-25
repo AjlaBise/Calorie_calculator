@@ -1,9 +1,11 @@
 const { ApolloServer, gql } = require("apollo-server-express");
 const { userMutations } = require("./resolvers/index");
 
+const User = require("./models/user");
+
 const typeDefs = gql(`
        type Query {
-         nekiGet: String
+         Hello: String
         }
         type Mutation {
           signIn: String
@@ -13,7 +15,9 @@ const typeDefs = gql(`
 
 const resolvers = {
   Query: {
-    nekiGet: () => {},
+    Hello: () => {
+      return 'Hello World!'
+    },
   },
   Mutation: {
     ...userMutations,
@@ -23,9 +27,11 @@ const resolvers = {
 module.exports = new ApolloServer({
   typeDefs,
   resolvers,
+  playground:true,
   context: () => ({
     models: {
-      User: new User(),
+      User: new User()
     },
   }),
+  introspection: true
 });
