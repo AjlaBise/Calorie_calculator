@@ -7,7 +7,6 @@ require("./models/food");
 
 exports.connect = async () => {
   try {
-    console.log("Nesto");
     await mongoose.connect(
      config.DB_URI.DB_URI,
       {
