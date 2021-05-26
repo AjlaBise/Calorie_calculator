@@ -4,6 +4,7 @@ class User {
   }
 
   async signUp(signUpData) {
+    
     return await this.Model.create(signUpData);
   }
 
