@@ -1,6 +1,5 @@
 const passport = require("passport");
 
-
 // options == {email, password}
 const authenticateUser = (options) => {
   return new Promise((resolve, reject) => {
