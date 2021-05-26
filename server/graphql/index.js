@@ -4,12 +4,15 @@ const { buildAuthContext } = require("./context");
 const mongoose = require("mongoose");
 const { userTypes } = require("./types");
 
+const {userQueries} = require("../graphql/resolvers");
 const User = require("./models/user");
 
 const typeDefs = gql(`
        ${userTypes}
        type Query {
          Hello: String
+
+         user:User
         }
         type Mutation {
           signUp(input : signUpInput): String
@@ -22,6 +25,7 @@ const resolvers = {
     Hello: () => {
       return "Hello World!";
     },
+    ...userQueries
   },
   Mutation: {
     ...userMutations,

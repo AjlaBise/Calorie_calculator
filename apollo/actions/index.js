@@ -1,4 +1,4 @@
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { useQuery, useMutation, useLazyQuery } from "@apollo/react-hooks";
 import { SIGN_IN, SIGN_UP, GET_USER } from "../queries/index";
 
 //Auth action start -------------------------
@@ -13,4 +13,13 @@ export const useSignUp = () =>
     },
   });
 
-export const useSignIn = () => useMutation(SIGN_IN);
+export const useSignIn = () =>
+  useMutation(SIGN_IN, {
+    update(cache, { data: { signIn: signedInUser } }) {
+      cache.writeQuery({
+        query: GET_USER,
+        data: { user: signedInUser },
+      });
+    },
+  });
+export const useLazyGetUser = () => useLazyQuery(GET_USER);
