@@ -13,7 +13,7 @@ const typeDefs = gql(`
         }
         type Mutation {
           signUp(input : signUpInput): String
-          signIn(input : signInInput): String
+          signIn(input : signInInput): User
           signOut: String
       }`);
 
