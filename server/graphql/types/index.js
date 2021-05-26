@@ -4,4 +4,9 @@ exports.userTypes = `
            password:String!,
            role:String
         }
+
+        input signInInput {
+            email:String!,
+            password:String!
+        }
 `;

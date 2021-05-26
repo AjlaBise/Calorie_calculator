@@ -4,12 +4,17 @@ class User {
   }
 
   async signUp(signUpData) {
-    
     return await this.Model.create(signUpData);
   }
 
-  signIn() {
-    return "Signing In...";
+  signIn(signInData, ctx) {
+    const isAuthenticated = ctx.authenticate(signInData);
+
+    if(isAuthenticated)
+    {
+      console.log("User is Authenticated!")
+    }
+    return `Signing In Output!`;
   }
 
   signOut() {
