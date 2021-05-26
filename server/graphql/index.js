@@ -31,8 +31,8 @@ const resolvers = {
 module.exports = new ApolloServer({
   typeDefs,
   resolvers,
-  context: () => ({
-    ...buildAuthContext(),
+  context: ({req}) => ({
+    ...buildAuthContext(req),
     models: {
       User: new User(mongoose.model("User")),
     },

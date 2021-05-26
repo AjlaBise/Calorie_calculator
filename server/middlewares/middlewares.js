@@ -1,10 +1,9 @@
-
 const config = require("../config/dev");
 const session = require("express-session");
-const passport = require('passport');
+const passport = require("passport");
 
 exports.init = (app, db) => {
-  require('./passport/index').init(passport);
+  require("./passport/index").init(passport);
 
   const sess = {
     name: "user-session",
@@ -16,4 +15,6 @@ exports.init = (app, db) => {
   };
 
   app.use(session(sess));
+
+  app.use(passport.initialize());
 };
