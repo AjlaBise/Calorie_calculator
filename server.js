@@ -9,18 +9,21 @@ const nextApp = next({
   dir: __dirname,
 });
 
-require("./server/database").connect();
+const db = require("./server/database");
+db.connect();
 
 async function main() {
   const app = express();
 
+  require('./server/middlewares').init(app,db);
+  
   await bootstrapApolloServer(app);
   await bootstrapClientApp(app);
 
   app.listen(PORT, (err) => {
     if (err) throw err;
     console.log(`[ server ] ready on port ${PORT}`);
-    console.log(`http://localhost:${PORT}`)
+    console.log(`http://localhost:${PORT}`);
   });
 }
 
