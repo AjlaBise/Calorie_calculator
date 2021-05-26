@@ -1,8 +1,11 @@
 
-const config = require("./config/dev");
+const config = require("../config/dev");
 const session = require("express-session");
+const passport = require('passport');
 
 exports.init = (app, db) => {
+  require('./passport/index').init(passport);
+
   const sess = {
     name: "user-session",
     secret: config.DB_URI.SESSION_SECRET,

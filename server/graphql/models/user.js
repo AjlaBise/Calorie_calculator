@@ -7,14 +7,14 @@ class User {
     return await this.Model.create(signUpData);
   }
 
-  signIn(signInData, ctx) {
-    const isAuthenticated = ctx.authenticate(signInData);
-
-    if(isAuthenticated)
-    {
-      console.log("User is Authenticated!")
+  async signIn(signInData, ctx) {
+    try {
+      const user = await ctx.authenticate(signInData);
+      console.log(user);
+      return `User: ${user.email}`;
+    } catch (error) {
+      return error;
     }
-    return `Signing In Output!`;
   }
 
   signOut() {

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const session = require("express-session");
-const MongoDbStore = require("connect-mongodb-session")(session);
+const MongoDbStore = require('connect-mongodb-session')(session);
 const config = require("../config/dev");
 
 require("./models/meals");

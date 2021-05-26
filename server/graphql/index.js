@@ -4,7 +4,7 @@ const { buildAuthContext } = require("./context");
 const mongoose = require("mongoose");
 const { userTypes } = require("./types");
 
-const User = require("./models/User");
+const User = require("./models/user");
 
 const typeDefs = gql(`
        ${userTypes}

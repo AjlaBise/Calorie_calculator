@@ -15,7 +15,7 @@ db.connect();
 async function main() {
   const app = express();
 
-  require('./server/middlewares').init(app,db);
+  require('./server/middlewares/middlewares').init(app,db);
   
   await bootstrapApolloServer(app);
   await bootstrapClientApp(app);
