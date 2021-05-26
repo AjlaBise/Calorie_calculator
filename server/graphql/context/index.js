@@ -9,7 +9,9 @@ const authenticateUser = (req, options) => {
       }
       if (user) {
         req.login(user, (error) => {
-          if(error){return reject(new Error(error)); }
+          if (error) {
+            return reject(new Error(error));
+          }
           return resolve(user);
         });
       } else {
@@ -25,6 +27,8 @@ const authenticateUser = (req, options) => {
 exports.buildAuthContext = (req) => {
   const auth = {
     authenticate: (options) => authenticateUser(req, options),
+    logout: () => req.logout(),
+    isAuthenticated: () => req.isAuthenticated()
   };
   return auth;
 };

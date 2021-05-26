@@ -15,6 +15,7 @@ exports.init = (app, db) => {
   };
 
   app.use(session(sess));
-
   app.use(passport.initialize());
+  app.use(passport.session());
+
 };

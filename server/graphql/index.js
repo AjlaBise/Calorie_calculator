@@ -14,7 +14,7 @@ const typeDefs = gql(`
         type Mutation {
           signUp(input : signUpInput): String
           signIn(input : signInInput): User
-          signOut: String
+          signOut: Boolean
       }`);
 
 const resolvers = {
@@ -31,7 +31,7 @@ const resolvers = {
 module.exports = new ApolloServer({
   typeDefs,
   resolvers,
-  context: ({req}) => ({
+  context: ({ req }) => ({
     ...buildAuthContext(req),
     models: {
       User: new User(mongoose.model("User")),

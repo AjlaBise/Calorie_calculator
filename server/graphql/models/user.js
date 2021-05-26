@@ -16,8 +16,17 @@ class User {
     }
   }
 
-  signOut() {
-    return "Signing Out...";
+  signOut(ctx) {
+    try {
+      console.log("BEFORE LOGOUT------");
+      console.log("isAuthenticated", ctx.isAuthenticated());
+      ctx.logout();
+      console.log("AFTER LOGOUT------");
+      console.log("isAuthenticated", ctx.isAuthenticated());
+      return true;
+    } catch (error) {
+      return false;
+    }
   }
 }
 
