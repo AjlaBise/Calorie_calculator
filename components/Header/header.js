@@ -1,4 +1,4 @@
-import { Div, ImageMenu, Button, TextCountainer } from "./index";
+import { Div, Button, TextCountainer } from "./index";
 import { createGlobalStyle } from "styled-components";
 import Image from 'next/image';
 
@@ -17,10 +17,10 @@ const Header = () => {
       <Div>
         <GlobalStyle />
         <Image
-          src="/components/assets/logo.svg"
+          src="/public/logo.svg"
           alt="logo"
-          width="100"
-          height="100"
+          width={191}
+          height={136}
         />
         {/* <ImageMenu
           src="https://res.cloudinary.com/dioxrnste/image/upload/v1621786662/logo/hamburger/hamburger_gl8qxn.png"

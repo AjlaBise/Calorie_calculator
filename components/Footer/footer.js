@@ -5,7 +5,7 @@ function footer() {
   return (
       <FooterWrapper>
         <Image
-          src="/components/assets/logo.svg"
+          src="/public/logo.svg"
           alt="logo"
           height="100"
           width="100"
