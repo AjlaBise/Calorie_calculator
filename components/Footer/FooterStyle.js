@@ -1,13 +1,6 @@
 import styled from "styled-components";
 
-const Image = styled.img`
-  display: flex;
-  margin-left: 7%;
-  margin-top:2%;
-  height:70px;
-`;
-
-const Div = styled.div`
+const FooterWrapper = styled.div`
   width: 100%;
   height: 110px;
   background-color: #082435;
@@ -17,4 +10,4 @@ const Div = styled.div`
   bottom: 0;
 `;
 
-export { Div,Image };
+export { FooterWrapper };

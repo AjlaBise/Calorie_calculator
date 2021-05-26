@@ -1,5 +1,6 @@
-import { Div, Image, ImageMenu, Button, TextCountainer } from "./indexStyle";
+import { Div, ImageMenu, Button, TextCountainer } from "./index";
 import { createGlobalStyle } from "styled-components";
+import Image from 'next/image';
 
 const GlobalStyle = createGlobalStyle`
      body{
@@ -16,8 +17,10 @@ const Header = () => {
       <Div>
         <GlobalStyle />
         <Image
-          src="https://res.cloudinary.com/dioxrnste/image/upload/v1621784958/logo/logo_j3jpik.png"
+          src="/components/assets/logo.svg"
           alt="logo"
+          width="100"
+          height="100"
         />
         {/* <ImageMenu
           src="https://res.cloudinary.com/dioxrnste/image/upload/v1621786662/logo/hamburger/hamburger_gl8qxn.png"

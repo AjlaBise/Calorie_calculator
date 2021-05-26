@@ -1,15 +1,16 @@
-import { Div, Image } from "./indexFooter";
+import { FooterWrapper } from "./index";
+import Image from "next/image";
 
 function footer() {
   return (
-    <div>
-      <Div>
+      <FooterWrapper>
         <Image
-          src="https://res.cloudinary.com/dioxrnste/image/upload/v1621784958/logo/logo_j3jpik.png"
+          src="/components/assets/logo.svg"
           alt="logo"
+          height="100"
+          width="100"
         />
-      </Div>
-    </div>
+      </FooterWrapper>
   );
 }
 
