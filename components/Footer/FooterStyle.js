@@ -3,9 +3,9 @@ import styled from "styled-components";
 const FooterWrapper = styled.div`
   display: flex;
   width: 100%;
-  background-color: black;
+  height:80px;
+  background-color:#88808a2e;
   border: none;
-  display: block;
   white-space: none;
 `;
 

@@ -3,14 +3,13 @@ import Image from "next/image";
 
 function footer() {
   return (
-      <FooterWrapper>
-        <Image
-          src="/public/logo.svg"
-          alt="logo"
-          height="100"
-          width="100"
-        />
-      </FooterWrapper>
+    <FooterWrapper>
+      <img
+        src="https://res.cloudinary.com/dioxrnste/image/upload/v1622144476/logo/logo_3_qfn2w0.png"
+        alt="logo"
+        style={{ width: "80px", position: "absolute", left: "10%" }}
+      />
+    </FooterWrapper>
   );
 }
 

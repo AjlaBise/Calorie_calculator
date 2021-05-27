@@ -23,7 +23,6 @@ function LoginForm({ onSubmit }) {
           id="password"
         />
       </div>
-      {loading && "Signing in..."}
       {<button type="submit">Prijavi se</button>}
     </form>
   );

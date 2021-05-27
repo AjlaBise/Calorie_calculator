@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-  color: white;
+  color: #7f229a;
   font-size: 18px;
-  padding-right: 15px;
+  padding-right: 8px;
   font-family: "Courgette", cursive;
   background: none;
   border: none;
@@ -11,7 +11,7 @@ const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: #f06103;
+    color: black;
   }
 `;
 
@@ -20,7 +20,7 @@ const TextCountainer = styled.div`
   width: 20%;
   position: absolute;
   right: 0;
-  top: 4%;
+  top: 7%;
 `;
 const Image = styled.img`
   display: flex;
@@ -38,8 +38,9 @@ const ImageMenu = styled.img`
 const Div = styled.div`
   display: flex;
   width: 100%;
-  height: 140px;
-  background-color: black;
+  height: 130px;
+  background-color:#88808a2e;
+  box-shadow: 5px 10px 12px #6e6c6f6b;
   border: none;
   display: block;
   white-space: none;
