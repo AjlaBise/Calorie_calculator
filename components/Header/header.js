@@ -4,6 +4,13 @@ import { createGlobalStyle } from "styled-components";
 import Image from "next/image";
 import withApollo from "../../hoc/withApollo";
 import { useLazyGetUser } from "../../apollo/actions";
+import Link from "next/link";
+
+const AppLink = ({ children, className, href }) => (
+  <Link href={href}>
+    <a className={className}>{children}</a>
+  </Link>
+);
 
 const GlobalStyle = createGlobalStyle`
      body{
@@ -27,10 +34,11 @@ const Header = () => {
     if (data.user && !user) {
       setUser(data.user);
     }
-    if(!data.user && !hasResponse)
-    {
+    if (!data.user && user) {
+      setUser(data.user);
+    }
+    if(!hasResponse) {
       setHasResponse(true);
-
     }
   }
   return (
@@ -47,7 +55,12 @@ const Header = () => {
             {user && (
               <>
                 <span>Welcome {user.email}</span>
-                <button>Sign Out</button>
+                <AppLink
+                  href="/login"
+                  className="navbar-brand mr-3 font-weight-bold"
+                >
+                  Logout
+                </AppLink>
               </>
             )}
             {(error || !user) && (

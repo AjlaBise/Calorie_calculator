@@ -11,7 +11,7 @@ const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: #7e229b;
+    color: #f06103;
   }
 `;
 
@@ -39,8 +39,7 @@ const Div = styled.div`
   display: flex;
   width: 100%;
   height: 140px;
-  background-color: #082435;
-  box-shadow: 10px 10px 30px #041623;
+  background-color: black;
   border: none;
   display: block;
   white-space: none;
