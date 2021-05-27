@@ -1,4 +1,4 @@
-import LoginForm from "../components/forms/LoginForm";
+import LoginForm from "../components/Forms/Login/LoginForm";
 import withApollo from "../hoc/withApollo";
 import { useSignIn } from "../apollo/actions";
 import Redirect from "../components/shared/Redirect";
