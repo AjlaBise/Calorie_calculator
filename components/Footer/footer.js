@@ -5,7 +5,7 @@ function footer() {
   return (
     <FooterWrapper>
       <img
-        src="https://res.cloudinary.com/dioxrnste/image/upload/v1622144476/logo/logo_3_qfn2w0.png"
+        src="https://res.cloudinary.com/dioxrnste/image/upload/v1621784958/logo/logo_j3jpik.png"
         alt="logo"
         style={{ width: "80px", position: "absolute", left: "10%" }}
       />

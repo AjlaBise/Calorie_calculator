@@ -1,22 +1,33 @@
+import {
+  WrapperLogin,
+  Form,
+  Circle1,
+  Circle2,
+  Input,
+  Div,
+  Bottom,
+} from "./index";
 import { useForm } from "react-hook-form";
 
 function RegisterForm({ onSubmit }) {
   const { register, handleSubmit } = useForm();
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+    <WrapperLogin>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <Circle1></Circle1>
+        <Circle2></Circle2>
+        <Div>
           <label>Email</label>
-          <input {...register("email")} type="email" id="email" />
-        </div>
-        <div>
-          <label>Lozinka</label>
-          <input {...register("password")} type="password" id="password" />
-        </div>
-        <button type="submit">Registruj se</button>
-      </form>
-    </div>
+          <Input {...register("email")} type="email" id="email" />
+
+          <label>Password</label>
+          <Input {...register("password")} type="password" id="password" />
+
+          <Bottom type="submit">SignUp</Bottom>
+        </Div>
+      </Form>
+    </WrapperLogin>
   );
 }
 
