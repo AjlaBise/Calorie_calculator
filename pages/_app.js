@@ -1,5 +1,5 @@
-import Header from "../components/Header/header";
-import Footer from "../components/Footer/footer";
+import Header from "../components/shared/Header/header";
+import Footer from "../components/shared/Footer/footer";
 import withApollo from "../hoc/withApollo";
 import { createGlobalStyle } from "styled-components";
 

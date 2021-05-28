@@ -36,6 +36,7 @@ exports.mealsTypes = `
      type Meals {
         id:ID
         food_id:String
+        user_id:String
         serving_size:String
         calories:String
     }   

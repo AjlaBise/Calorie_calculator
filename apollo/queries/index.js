@@ -42,6 +42,7 @@ export const GET_MEALS = gql`
     meals {
       id,
       food_id,
+      user_id,
       serving_size,
       calories,
     }

@@ -6,6 +6,10 @@ const mealsSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Food",
   },
+  user_id: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
   serving_size: {
     type: Number,
     required: true,

@@ -26,9 +26,6 @@ const typeDefs = gql(`
 
 const resolvers = {
   Query: {
-    Hello: () => {
-      return "Hello World!";
-    },
     ...userQueries,
     ...mealsQueries,
   },

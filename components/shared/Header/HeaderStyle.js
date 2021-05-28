@@ -14,33 +14,19 @@ export const Button = styled.button`
     color: black;
   }
 `;
-
-export const TextCountainer = styled.div`
-  display: flex;
-  width: 20%;
-  position: absolute;
-  right: 0;
-  top: 7%;
-`;
-export const Image = styled.img`
-  display: flex;
-  position: absolute;
-  left: 7%;
-  height: 110px;
-`;
-
 export const ImageMenu = styled.img`
   display: flex;
   position: absolute;
   right: 5%;
   top: 5%;
 `;
+
 export const Div = styled.div`
   display: flex;
   width: 100%;
   height: 130px;
-  background-color: #88808a2e;
-  box-shadow: 5px 10px 12px #6e6c6f6b;
+  background-color: #88808a6e;
+  box-shadow: 5px 10px 12px #6e6c6f4d;
   border: none;
   display: block;
   white-space: none;
@@ -53,7 +39,7 @@ export const DropdownContent = styled.div`
   width: 300px;
   z-index: 999;
   box-shadow: 0 16px 24px 2px rgb(179, 101, 202);
-  background: rgb(179, 101, 202);
+  background: rgb(180, 101, 204);
   background: linear-gradient(
     to right top,
     rgba(255, 255, 255, 1),
@@ -68,8 +54,9 @@ export const UL = styled.ul`
   z-index: 999;
 `;
 export const LI = styled.li`
-  padding: 8px 12px;
+  padding: 15px 12px;
   z-index:999;
+  text-decoration:none;
   &:hover {
     background-color: rgba(0, 0, 0, 0.14);
     cursor: pointer;

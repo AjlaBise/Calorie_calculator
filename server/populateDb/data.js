@@ -117,6 +117,7 @@ const data = {
     {
       id: mealId,
       food_id: mongoose.Types.ObjectId(),
+      user_id:mongoose.Types.ObjectId(),
       serving_size: "200",
       calories: "45",
       food_mealsId: foodId,
@@ -124,6 +125,7 @@ const data = {
     {
       id: mealId,
       food_id: mongoose.Types.ObjectId(),
+      user_id:mongoose.Types.ObjectId(),
       serving_size: "400",
       calories: "1280",
       food_mealsId: foodId,
@@ -131,6 +133,7 @@ const data = {
     {
       id: mealId,
       food_id: mongoose.Types.ObjectId(),
+      user_id:mongoose.Types.ObjectId(),
       serving_size: "700",
       calories: "1455",
       food_mealsId: foodId,
@@ -138,6 +141,7 @@ const data = {
     {
       id: mealId,
       food_id: mongoose.Types.ObjectId(),
+      user_id:mongoose.Types.ObjectId(),
       serving_size: "700",
       calories: "1455",
       food_mealsId: foodId,
@@ -145,6 +149,7 @@ const data = {
     {
       id: mealId,
       food_id: mongoose.Types.ObjectId(),
+      user_id:mongoose.Types.ObjectId(),
       serving_size: "800",
       calories: "1655",
       food_mealsId: foodId,

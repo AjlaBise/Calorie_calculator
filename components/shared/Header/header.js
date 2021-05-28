@@ -8,8 +8,8 @@ import {
   LI,
 } from "./HeaderStyle";
 import Image from "next/image";
-import withApollo from "../../hoc/withApollo";
-import { useLazyGetUser } from "../../apollo/actions";
+import withApollo from "../../../hoc/withApollo";
+import { useLazyGetUser } from "../../../apollo/actions";
 import Link from "next/link";
 
 const AppLink = ({ children, className, href }) => (
@@ -75,7 +75,7 @@ const Header = () => {
             <UL>
               <LI>Edit Accout</LI>
               <LI>
-                <AppLink href="/logout">Log Out</AppLink>
+                <AppLink href="/login">Log Out</AppLink>
               </LI>
               {user && user.role === "regular" && (
                 <LI>
