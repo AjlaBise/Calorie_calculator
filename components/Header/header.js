@@ -1,5 +1,12 @@
 import { useState, useEffect } from "react";
-import { Div, Button, TextCountainer } from "./index";
+import {
+  Div,
+  Button,
+  TextCountainer,
+  DropdownContent,
+  UL,
+  LI,
+} from "./HeaderStyle";
 import Image from "next/image";
 import withApollo from "../../hoc/withApollo";
 import { useLazyGetUser } from "../../apollo/actions";
@@ -13,9 +20,13 @@ const AppLink = ({ children, className, href }) => (
 
 const Header = () => {
   const [user, setUser] = useState(null);
+  const [isActive, setIsActive] = useState(false);
   const [hasResponse, setHasResponse] = useState(false);
   const [getUser, { data, error }] = useLazyGetUser();
 
+  const handleDropdown = () => {
+    setIsActive(!isActive);
+  };
   useEffect(() => {
     getUser();
   }, []);
@@ -46,31 +57,34 @@ const Header = () => {
             }}
           />
         </AppLink>
-        {hasResponse && (
-          <TextCountainer>
-            {user && (
-              <>
-                <span>Welcome {user.email}</span>
-                <AppLink href="/login">Logout</AppLink>
-              </>
-            )}
-            {(error || !user) && (
-              <>
-                <AppLink href="/login">
-                  <Button>Sign in | </Button>
-                </AppLink>
-                <AppLink
-                  href="/register"
-                  className="navbar-brand mr-3 font-weight-bold"
-                >
-                  <Button>Create an account</Button>
-                </AppLink>
-              </>
-            )}
-          </TextCountainer>
-        )}
 
-        {user && console.log(user)}
+        <img
+          onClick={handleDropdown}
+          src="https://res.cloudinary.com/dioxrnste/image/upload/v1622195447/logo/hamburger_felbpi.png"
+          alt="hamburger"
+          style={{
+            width: "40px",
+            display: "flex",
+            position: "absolute",
+            right: "5%",
+            top: "5%",
+          }}
+        />
+        {isActive && (
+          <DropdownContent>
+            <UL>
+              <LI>Edit Accout</LI>
+              <LI>
+                <AppLink href="/logout">Log Out</AppLink>
+              </LI>
+              {user && user.role === "regular" && (
+                <LI>
+                  <AppLink href="/">Edit accont</AppLink>
+                </LI>
+              )}
+            </UL>
+          </DropdownContent>
+        )}
       </Div>
     </>
   );

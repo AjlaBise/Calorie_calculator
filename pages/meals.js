@@ -7,6 +7,6 @@ const meals = withAuth(() => {
       <h1>MEALS PAGE</h1>
     </div>
   );
-}, "admin");
+}, ["admin", "regular"]);
 
 export default withApollo(meals);
