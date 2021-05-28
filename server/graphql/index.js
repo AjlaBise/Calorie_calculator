@@ -4,7 +4,11 @@ const { buildAuthContext } = require("./context");
 const mongoose = require("mongoose");
 const { userTypes, mealsTypes } = require("./types");
 
-const { userQueries, mealsQueries } = require("../graphql/resolvers");
+const {
+  userQueries,
+  mealsQueries,
+  mealsMutations,
+} = require("../graphql/resolvers");
 
 const User = require("./models/user");
 const Meals = require("./models/melas");
@@ -12,16 +16,17 @@ const Meals = require("./models/melas");
 const typeDefs = gql(`
        ${userTypes}
        ${mealsTypes}
-       type Query {
-         Hello: String
 
+       type Query {
          user:User
          meals:[Meals]
         }
+
         type Mutation {
           signUp(input : signUpInput): String
           signIn(input : signInInput): User
           signOut: Boolean
+          createMeals(input:MealsInput):Meals
       }`);
 
 const resolvers = {
@@ -31,6 +36,7 @@ const resolvers = {
   },
   Mutation: {
     ...userMutations,
+    ...mealsMutations,
   },
 };
 

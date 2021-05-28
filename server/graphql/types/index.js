@@ -33,11 +33,18 @@ exports.foodTypes = `
 `;
 
 exports.mealsTypes = `
-     type Meals {
+    type Meals {
         id:ID
         food_id:String
         user_id:String
         serving_size:String
         calories:String
     }   
+    input MealsInput {
+        serving_size:String
+        calories:String
+        user_id:String
+        food_id:String
+
+    }
 `;

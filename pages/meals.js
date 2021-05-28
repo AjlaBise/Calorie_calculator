@@ -1,10 +1,11 @@
 import withApollo from "../hoc/withApollo";
 import withAuth from "../hoc/withAuth";
+import MealsWrapper from '../components/Meals/MealsWrapper';
 
 const meals = withAuth(() => {
   return (
     <div>
-      <h1>MEALS PAGE</h1>
+     <MealsWrapper/>
     </div>
   );
 }, ["admin", "regular"]);

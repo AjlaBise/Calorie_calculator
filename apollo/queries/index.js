@@ -40,11 +40,34 @@ export const GET_USER = gql`
 export const GET_MEALS = gql`
   query Meals {
     meals {
-      id,
-      food_id,
-      user_id,
-      serving_size,
-      calories,
+      id
+      food_id
+      user_id
+      serving_size
+      calories
     }
   }
 `;
+
+export const CREATE_MEALS = gql`
+mutation CreateMeals(
+  $serving_size: String, 
+  $calories: String
+  $user_id:User
+  $food_id:Food
+  
+  ) {
+  createMeals(input: { 
+    serving_size: $serving_size, 
+    calories: $calories 
+    user_id: $user_id
+    food_id: $food_id
+  }) {
+    serving_size
+    calories
+    user_id
+    food_id
+  }
+}
+`;
+

@@ -5,10 +5,17 @@ exports.userQueries = {
 };
 
 exports.mealsQueries = {
-  meals:(root, args, ctx) => {
+  meals: (root, args, ctx) => {
     return ctx.models.Meals.getMeals();
-  }
-}
+  },
+};
+
+exports.mealsMutations = {
+  createMeals: async (root, { input }, ctx) => {
+    const createMeals = await ctx.models.Meals.createMeals(input);
+    return createMeals;
+  },
+};
 
 exports.userMutations = {
   signUp: async (root, { input }, ctx) => {

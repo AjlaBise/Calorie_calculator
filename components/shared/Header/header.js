@@ -46,16 +46,7 @@ const Header = () => {
     <>
       <Div>
         <AppLink href="/">
-          <img
-            src="https://res.cloudinary.com/dioxrnste/image/upload/v1621784958/logo/logo_j3jpik.png"
-            alt="logo"
-            style={{
-              width: "150px",
-              position: "absolute",
-              left: "10%",
-              top: "1%",
-            }}
-          />
+          <Image src="/logo.svg" alt="logo" width={185} height={120}/>
         </AppLink>
 
         <img
@@ -70,20 +61,36 @@ const Header = () => {
             top: "5%",
           }}
         />
-        {isActive && (
-          <DropdownContent>
-            <UL>
-              <LI>Edit Accout</LI>
-              <LI>
-                <AppLink href="/login">Log Out</AppLink>
-              </LI>
-              {user && user.role === "regular" && (
-                <LI>
-                  <AppLink href="/">Edit accont</AppLink>
-                </LI>
-              )}
-            </UL>
-          </DropdownContent>
+        {hasResponse && (
+          <>
+            {isActive && (
+              <DropdownContent>
+                {user && (
+                  <UL>
+                    <LI>Edit Accout</LI>
+                    <LI>
+                      <AppLink href="/login">Log Out</AppLink>
+                    </LI>
+                    {user && user.role === "regular" && (
+                      <LI>
+                        <AppLink href="/">Edit accont</AppLink>
+                      </LI>
+                    )}
+                  </UL>
+                )}
+                {(error || !user) && (
+                  <>
+                    <AppLink href="/login">
+                      <LI>Prijavi se</LI>
+                    </AppLink>
+                    <AppLink href="/register">
+                      <LI>Registruj se</LI>
+                    </AppLink>
+                  </>
+                )}
+              </DropdownContent>
+            )}
+          </>
         )}
       </Div>
     </>

@@ -56,7 +56,7 @@ export const UL = styled.ul`
 export const LI = styled.li`
   padding: 15px 12px;
   z-index:999;
-  text-decoration:none;
+  font-family: "Courgette", cursive;
   &:hover {
     background-color: rgba(0, 0, 0, 0.14);
     cursor: pointer;
