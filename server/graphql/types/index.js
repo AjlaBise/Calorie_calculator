@@ -18,3 +18,25 @@ exports.userTypes = `
             password:String!
         }
 `;
+
+exports.foodTypes = `
+     type Food {
+         id:ID
+         name:String
+          image:String
+          serving_size:String
+          calories:String
+          proteins:String
+          carbs:String
+          fat:String
+    }   
+`;
+
+exports.mealsTypes = `
+     type Meals {
+        id:ID
+        food_id:String
+        serving_size:String
+        calories:String
+    }   
+`;

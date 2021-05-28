@@ -2,17 +2,21 @@ const { ApolloServer, gql } = require("apollo-server-express");
 const { userMutations } = require("./resolvers/index");
 const { buildAuthContext } = require("./context");
 const mongoose = require("mongoose");
-const { userTypes } = require("./types");
+const { userTypes, mealsTypes } = require("./types");
 
-const {userQueries} = require("../graphql/resolvers");
+const { userQueries, mealsQueries } = require("../graphql/resolvers");
+
 const User = require("./models/user");
+const Meals = require("./models/melas");
 
 const typeDefs = gql(`
        ${userTypes}
+       ${mealsTypes}
        type Query {
          Hello: String
 
          user:User
+         meals:[Meals]
         }
         type Mutation {
           signUp(input : signUpInput): String
@@ -25,7 +29,8 @@ const resolvers = {
     Hello: () => {
       return "Hello World!";
     },
-    ...userQueries
+    ...userQueries,
+    ...mealsQueries,
   },
   Mutation: {
     ...userMutations,
@@ -39,6 +44,7 @@ module.exports = new ApolloServer({
     ...buildAuthContext(req),
     models: {
       User: new User(mongoose.model("User")),
+      Meals: new Meals(mongoose.model("Meals")),
     },
   }),
 });

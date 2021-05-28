@@ -17,7 +17,11 @@ export const SIGN_IN = gql`
   }
 `;
 
-export const SIGN_OUT = gql`mutation SignOut {signOut}`;
+export const SIGN_OUT = gql`
+  mutation SignOut {
+    signOut
+  }
+`;
 //Auth queries end ----
 
 //USER--------
@@ -27,6 +31,19 @@ export const GET_USER = gql`
       id
       email
       role
+    }
+  }
+`;
+
+//MEALS -----
+
+export const GET_MEALS = gql`
+  query Meals {
+    meals {
+      id,
+      food_id,
+      serving_size,
+      calories,
     }
   }
 `;
