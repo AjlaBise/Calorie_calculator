@@ -67,7 +67,6 @@ const Header = () => {
               <DropdownContent>
                 {user && (
                   <UL>
-                    <LI>Edit Accout</LI>
                     <LI>
                       <AppLink href="/login">Log Out</AppLink>
                     </LI>

@@ -10,6 +10,12 @@ exports.mealsQueries = {
   },
 };
 
+exports.foodQueries = {
+  food: (root, args, ctx) => {
+    return ctx.models.Food.getFoods();
+  },
+};
+
 exports.mealsMutations = {
   createMeals: async (root, { input }, ctx) => {
     const createMeals = await ctx.models.Meals.createMeals(input);

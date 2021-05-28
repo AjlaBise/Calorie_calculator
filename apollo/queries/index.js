@@ -71,3 +71,19 @@ mutation CreateMeals(
 }
 `;
 
+//FOOD------
+
+export const GET_FOODS = gql`
+  query Food {
+    food {
+      id
+      name
+      image
+      serving_size
+      calories
+      proteins
+      carbs
+      fat
+    }
+  }
+`;
