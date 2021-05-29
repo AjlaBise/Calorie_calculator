@@ -44,6 +44,12 @@ export const GET_ALL_USERS = gql`
       }   
   }
 `;
+
+export const DELETE_USER=gql`
+mutation DeleteUser($id:ID){
+  deleteUser(id:$id)
+}
+`
 //MEALS -----
 
 export const GET_MEALS = gql`

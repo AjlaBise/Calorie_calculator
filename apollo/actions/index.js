@@ -5,6 +5,7 @@ import {
   SIGN_OUT,
   GET_USER,
   GET_ALL_USERS,
+  DELETE_USER,
   GET_MEALS,
   GET_ALL_MEALS,
   CREATE_MEALS,
@@ -39,8 +40,22 @@ export const useLazyGetUser = () => useLazyQuery(GET_USER);
 export const useGetUser = () => useQuery(GET_USER);
 export const useGetAllUsers = () => useQuery(GET_ALL_USERS);
 
-//Auth action END -------------------------
+export const useDeleteUser = () =>
+  useMutation(DELETE_USER, {
+    update(cache, { data: { deleteUser } }) {
+      const { users } = cache.readQuery({
+        query: GET_ALL_USERS,
+      });
 
+      const newUSers = users.filter((user) => user.id !== deleteUser);
+      cache.writeQuery({
+        query: GET_ALL_USERS,
+        data: { users: newUSers },
+      });
+    },
+  });
+
+//Auth action END -------------------------
 
 //FOOD START
 
@@ -57,13 +72,11 @@ export const useCreateFood = () =>
     },
   });
 
-
-  //FOOD END
-
+//FOOD END
 
 //MEALS START---
 export const useGetAllMeals = () => useQuery(GET_ALL_MEALS);
-export const useGetMeals = (options) => useQuery(GET_MEALS,options);
+export const useGetMeals = (options) => useQuery(GET_MEALS, options);
 
 export const useCreateMeals = () =>
   useMutation(CREATE_MEALS, {

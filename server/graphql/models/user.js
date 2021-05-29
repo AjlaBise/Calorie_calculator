@@ -1,6 +1,7 @@
 class User {
-  constructor(model) {
+  constructor(model,user) {
     this.Model = model;
+    this.user = user;
   }
 
   getAuthUser(ctx) {
@@ -12,6 +13,14 @@ class User {
 
   getAllUser() {
     return this.Model.find({});
+  }
+
+  DeleteUser(id) {
+    if (!this.user || this.user.role !== "admin") {
+      throw new Error("Not Authorised!");
+    }
+
+    return this.Model.findOneAndRemove({ id: id });
   }
 
   async signUp(signUpData) {
@@ -29,11 +38,7 @@ class User {
 
   signOut(ctx) {
     try {
-      console.log("BEFORE LOGOUT------");
-      console.log("isAuthenticated", ctx.isAuthenticated());
       ctx.logout();
-      console.log("AFTER LOGOUT------");
-      console.log("isAuthenticated", ctx.isAuthenticated());
       return true;
     } catch (error) {
       return false;
