@@ -2,6 +2,9 @@ exports.userQueries = {
   user: (root, args, ctx) => {
     return ctx.models.User.getAuthUser(ctx);
   },
+  users: (root, args, ctx) => {
+    return ctx.models.User.getAllUser();
+  }
 };
 
 exports.mealsQueries = {

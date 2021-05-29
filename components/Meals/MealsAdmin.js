@@ -5,6 +5,7 @@ import {
   Circle2,
   Button,
   Text,
+  DIV
 } from "./MealsStyle";
 import { useGetAllMeals } from "../../apollo/actions";
 import { useState, useEffect } from "react";
@@ -51,11 +52,12 @@ const AllMeals = () => {
         </Button>
       </Circle2>
       <Wrapper>
-        <Text> ✎ Serving size: </Text>
-        <Text>{data && data.mealsAll[current].serving_size}</Text>
+        <DIV>
+        <Text>🍱 Serving size: {data && data.mealsAll[current].serving_size}</Text>
 
-        <Text>⋮⋮⋮  Calories : </Text>
-        <Text>{data && data.mealsAll[current].calories}</Text>
+        <Text>⚖️ Calories : {data && data.mealsAll[current].calories}</Text>
+        <Text>👤 User : ovdje ide mail</Text>
+        </DIV>
       </Wrapper>
     </MainWrapper>
   );

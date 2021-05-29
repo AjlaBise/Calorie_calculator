@@ -42,14 +42,21 @@ const Header = () => {
         <AppLink href="/">
           <Image src="/logo.svg" alt="logo" width={185} height={120} />
         </AppLink>
-        <div style={{display:"flex", justifyContent:"space-around", width:'20%', marginLeft:"15%"}}>
-        <AppLink href="/meals">
-          <Button>Meals</Button>
-        </AppLink>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: "20%",
+            marginLeft: "15%",
+          }}
+        >
+          <AppLink href="/meals">
+            <Button>Meals</Button>
+          </AppLink>
 
-        <AppLink href="/food">
-          <Button>Food</Button>
-        </AppLink>
+          <AppLink href="/food">
+            <Button>Food</Button>
+          </AppLink>
         </div>
         <DivImg>
           <Image
@@ -77,8 +84,7 @@ const Header = () => {
                     )}
                     {user && user.role === "admin" && (
                       <LI>
-                        TODO:Kreirati page za pregled usera
-                        <AppLink href="/">All users</AppLink>
+                        <AppLink href="/user">All users</AppLink>
                       </LI>
                     )}
                   </UL>

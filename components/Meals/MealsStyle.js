@@ -27,6 +27,14 @@ export const Wrapper = styled.div`
   margin-bottom: 10%;
   border-radius: 20rem;
 `;
+export const DIV = styled.div`
+  width: 50%;
+  height: 400px;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  border-radius: 20rem;
+`;
+
 
 export const Circle1 = styled.div`
   background: rgb(179, 101, 202);

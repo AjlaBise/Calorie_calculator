@@ -36,6 +36,14 @@ export const GET_USER = gql`
   }
 `;
 
+export const GET_ALL_USERS = gql`
+ query User {
+   users {
+      email
+        role
+      }   
+  }
+`;
 //MEALS -----
 
 export const GET_MEALS = gql`
@@ -46,8 +54,7 @@ export const GET_MEALS = gql`
       user_id
       serving_size
       calories
-    } 
-
+    }
   }
 `;
 

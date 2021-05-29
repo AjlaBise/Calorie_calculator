@@ -10,6 +10,10 @@ class User {
     return null;
   }
 
+  getAllUser() {
+    return this.Model.find({});
+  }
+
   async signUp(signUpData) {
     return await this.Model.create(signUpData);
   }

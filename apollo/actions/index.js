@@ -4,6 +4,7 @@ import {
   SIGN_UP,
   SIGN_OUT,
   GET_USER,
+  GET_ALL_USERS,
   GET_MEALS,
   GET_ALL_MEALS,
   CREATE_MEALS,
@@ -36,6 +37,7 @@ export const useSignIn = () =>
 export const useSignOut = () => useMutation(SIGN_OUT);
 export const useLazyGetUser = () => useLazyQuery(GET_USER);
 export const useGetUser = () => useQuery(GET_USER);
+export const useGetAllUsers = () => useQuery(GET_ALL_USERS);
 
 //Auth action END -------------------------
 
