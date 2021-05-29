@@ -1,19 +1,20 @@
+import { useForm } from "react-hook-form";
 import {
-  WrapperLogin,
+  Wrapper,
   Form,
   Circle1,
   Circle2,
   Input,
   Div,
-  Bottom,
-} from "./index";
-import { useForm } from "react-hook-form";
+  Button,
+} from "./RegisterStyle.js";
 
 function RegisterForm({ onSubmit }) {
+  
   const { register, handleSubmit } = useForm();
 
   return (
-    <WrapperLogin>
+    <Wrapper>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Circle1></Circle1>
         <Circle2></Circle2>
@@ -24,10 +25,10 @@ function RegisterForm({ onSubmit }) {
           <label>Password</label>
           <Input {...register("password")} type="password" id="password" />
 
-          <Bottom type="submit">SignUp</Bottom>
+          <Button type="submit">SignUp</Button>
         </Div>
       </Form>
-    </WrapperLogin>
+    </Wrapper>
   );
 }
 

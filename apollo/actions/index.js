@@ -1,10 +1,13 @@
 import { useQuery, useMutation, useLazyQuery } from "@apollo/react-hooks";
-import { SIGN_IN, 
-  SIGN_UP, 
-  SIGN_OUT, 
-  GET_USER, 
-  GET_MEALS, 
-  GET_FOODS } from "../queries/index";
+import {
+  SIGN_IN,
+  SIGN_UP,
+  SIGN_OUT,
+  GET_USER,
+  GET_MEALS,
+  GET_FOODS,
+  CREATE_FOOD,
+} from "../queries/index";
 
 //Auth action start -------------------------
 
@@ -31,5 +34,16 @@ export const useSignIn = () =>
 export const useSignOut = () => useMutation(SIGN_OUT);
 export const useLazyGetUser = () => useLazyQuery(GET_USER);
 export const useGetUser = () => useQuery(GET_USER);
-export const useGetMeals=()=>useQuery(GET_MEALS);
-export const useGetFoods=()=>useQuery(GET_FOODS);
+export const useGetMeals = () => useQuery(GET_MEALS);
+export const useGetFoods = () => useQuery(GET_FOODS);
+
+export const useCreateFood = () =>
+  useMutation(CREATE_FOOD, {
+    update(cache, { data: { createFood } }) {
+      const { foods } = cache.readQuery({ query: GET_FOODS });
+      cache.writeQuery({
+        query: GET_FOODS,
+        data: { foods: [...foods, createFood] },
+      });
+    },
+  });
