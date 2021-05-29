@@ -52,8 +52,8 @@ exports.mealsTypes = `
     input MealsInput {
         serving_size:String
         calories:String
-        user_id:String
-        food_id:String
 
     }
+
+  
 `;

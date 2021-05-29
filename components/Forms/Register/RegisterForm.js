@@ -7,10 +7,10 @@ import {
   Input,
   Div,
   Button,
-} from "./RegisterStyle.js";
+} from "../../../styles/FormsStyle.js";
 
 function RegisterForm({ onSubmit }) {
-  
+
   const { register, handleSubmit } = useForm();
 
   return (

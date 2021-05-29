@@ -22,6 +22,7 @@ export const SIGN_OUT = gql`
     signOut
   }
 `;
+
 //Auth queries end ----
 
 //USER--------
@@ -38,8 +39,20 @@ export const GET_USER = gql`
 //MEALS -----
 
 export const GET_MEALS = gql`
+  query Meals($id: ID) {
+    meals(id: $id) {
+      id
+      food_id
+      user_id
+      serving_size
+      calories
+    }
+  }
+`;
+
+export const GET_ALL_MEALS = gql`
   query Meals {
-    meals {
+    mealsAll {
       id
       food_id
       user_id

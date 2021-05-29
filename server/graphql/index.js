@@ -23,7 +23,8 @@ const typeDefs = gql(`
 
        type Query {
          user:User
-         meals:[Meals]
+         meals(id:ID):[Meals]
+         mealsAll:[Meals]
          food:[Food]
         }
 
@@ -31,7 +32,7 @@ const typeDefs = gql(`
           signUp(input : signUpInput): String
           signIn(input : signInInput): User
           signOut: Boolean
-          createMeals(input:MealsInput):Meals
+          createMeals(id:ID, input:MealsInput):Meals
           createFood(input: FoodInput):Food
       }`);
 
@@ -44,7 +45,7 @@ const resolvers = {
   Mutation: {
     ...userMutations,
     ...mealsMutations,
-    ...foodMutations
+    ...foodMutations,
   },
 };
 
@@ -54,9 +55,9 @@ module.exports = new ApolloServer({
   context: ({ req }) => ({
     ...buildAuthContext(req),
     models: {
-      User: new User(mongoose.model("User")),
-      Meals: new Meals(mongoose.model("Meals")),
-      Food: new Food(mongoose.model("Food")),
+      User: new User(mongoose.model("User"), req.user),
+      Meals: new Meals(mongoose.model("Meals"), req.user),
+      Food: new Food(mongoose.model("Food"), req.user),
     },
   }),
 });

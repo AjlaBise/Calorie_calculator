@@ -8,7 +8,6 @@ class Food {
   }
 
   createFood(data) {
-    data.user_id = this.user;
     return this.Model.create(data);
   }
 }

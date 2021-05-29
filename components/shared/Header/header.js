@@ -1,12 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  Div,
-  Button,
-  TextCountainer,
-  DropdownContent,
-  UL,
-  LI,
-} from "./HeaderStyle";
+import { Div, DropdownContent, UL, LI } from "./HeaderStyle";
 import Image from "next/image";
 import withApollo from "../../../hoc/withApollo";
 import { useLazyGetUser } from "../../../apollo/actions";
@@ -19,6 +12,7 @@ const AppLink = ({ children, className, href }) => (
 );
 
 const Header = () => {
+
   const [user, setUser] = useState(null);
   const [isActive, setIsActive] = useState(false);
   const [hasResponse, setHasResponse] = useState(false);
@@ -27,6 +21,7 @@ const Header = () => {
   const handleDropdown = () => {
     setIsActive(!isActive);
   };
+
   useEffect(() => {
     getUser();
   }, []);
@@ -48,7 +43,9 @@ const Header = () => {
         <AppLink href="/">
           <Image src="/logo.svg" alt="logo" width={185} height={120}/>
         </AppLink>
-
+        <AppLink href="/meals">
+         <button>Meals</button>
+        </AppLink>
         <img
           onClick={handleDropdown}
           src="https://res.cloudinary.com/dioxrnste/image/upload/v1622195447/logo/hamburger_felbpi.png"
@@ -73,6 +70,11 @@ const Header = () => {
                     {user && user.role === "regular" && (
                       <LI>
                         <AppLink href="/">Edit accont</AppLink>
+                      </LI>
+                    )}
+                     {user && user.role === "admin" && (
+                      <LI>
+                        <AppLink href="/meals">Meals</AppLink>
                       </LI>
                     )}
                   </UL>

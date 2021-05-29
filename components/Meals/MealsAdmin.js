@@ -1,9 +1,13 @@
 import { MainWrapper, Wrapper, Circle1, Circle2 } from "./MealsStyle";
-import { useGetMeals } from "../../apollo/actions";
+import { useGetAllMeals } from "../../apollo/actions";
 import { useState, useEffect } from "react";
 
-const MealsWrapper = () => {
-  const { data } = useGetMeals();
+const AllMeals = () => {
+  const { data } = useGetAllMeals();
+  {
+    console.log(data);
+  }
+
   const [current, setCurrent] = useState(0);
   const [disabledNext, setDisabledNext] = useState(false);
   const [disabledPrevious, setDisabledPrevious] = useState(true);
@@ -15,18 +19,16 @@ const MealsWrapper = () => {
   };
 
   const handleNext = () => {
-    if (current < data.meals.length - 1) {
+    if (current < data.mealsAll.length - 1) {
       setCurrent(current + 1);
     }
   };
 
   useEffect(() => {
-
     current === 0 ? setDisabledPrevious(true) : setDisabledPrevious(false);
-    current === (data && data.meals.length)
+    current === (data && data.mealsAll.length)
       ? setDisabledNext(true)
       : setDisabledNext(false);
-
   }, [current]);
 
   return (
@@ -34,8 +36,8 @@ const MealsWrapper = () => {
       <Circle1 />
       <Circle2 />
       <Wrapper>
-        <p>{data && data.meals[current].id}</p>
-        <p>{data && data.meals[current].calories}</p>
+        <p>{data && data.mealsAll[current].id}</p>
+        <p>{data && data.mealsAll[current].calories}</p>
         <button onClick={handlePrevious} disabled={disabledPrevious}>
           lijevo
         </button>
@@ -48,4 +50,4 @@ const MealsWrapper = () => {
   );
 };
 
-export default MealsWrapper;
+export default AllMeals;

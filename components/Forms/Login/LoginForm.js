@@ -1,18 +1,18 @@
 import {
-  WrapperLogin,
+  Wrapper,
   Form,
   Circle1,
   Circle2,
   Input,
   Div,
-  Bottom,
-} from "./index";
+  Button,
+} from "../../../styles/FormsStyle.js";
 import { useForm } from "react-hook-form";
 
 function LoginForm({ onSubmit }) {
   const { register, handleSubmit } = useForm();
   return (
-    <WrapperLogin>
+    <Wrapper>
       <Circle1></Circle1>
       <Circle2 />
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -32,11 +32,11 @@ function LoginForm({ onSubmit }) {
             placeholder="Lozinka"
             id="password"
           />
-        
-        {<Bottom type="submit">Login</Bottom>}
+
+          {<Button type="submit">Login</Button>}
         </Div>
       </Form>
-    </WrapperLogin>
+    </Wrapper>
   );
 }
 

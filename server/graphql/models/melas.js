@@ -2,13 +2,23 @@ class Meals {
   constructor(model, user) {
     this.Model = model;
     this.user = user;
+    this.writeRights = "regular";
   }
 
-  getMeals() {
-    return this.Model.find({ user: this.user.id });
+  getMeals(user_id) {
+
+    return this.Model.find({user_id});
+  }
+
+  getAllMeals() {
+
+    return this.Model.find({});
   }
 
   createMeals(data) {
+    if (!this.user || this.user.role !== "regular") {
+      throw new Error("Not Authorised!");
+    }
     data.user_id = this.user;
     return this.Model.create(data);
   }

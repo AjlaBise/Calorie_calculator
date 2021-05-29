@@ -5,8 +5,11 @@ exports.userQueries = {
 };
 
 exports.mealsQueries = {
-  meals: (root, args, ctx) => {
-    return ctx.models.Meals.getMeals();
+  meals: (root, {id}, ctx) => {
+    return ctx.models.Meals.getMeals(id);
+  },
+  mealsAll: (root, args, ctx) => {
+    return ctx.models.Meals.getAllMeals();
   },
 };
 
@@ -25,7 +28,8 @@ exports.foodMutations = {
 
 
 exports.mealsMutations = {
-  createMeals: async (root, { input }, ctx) => {
+  createMeals: async (root, {id, input }, ctx) => {
+    input.food_id = id;
     const createMeals = await ctx.models.Meals.createMeals(input);
     return createMeals;
   },
