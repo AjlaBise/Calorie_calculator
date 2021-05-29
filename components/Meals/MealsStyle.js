@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
   );
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content:center;
   margin-top: 10%;
   margin-bottom: 10%;
   border-radius: 20rem;
@@ -38,8 +38,8 @@ export const Circle1 = styled.div`
   height: 12rem;
   width: 12rem;
   position: absolute;
-  top: 30%;
-  right: 20%;
+  top: 60%;
+  right: 15%;
   border-radius: 15rem;
 `;
 
@@ -50,9 +50,30 @@ export const Circle2 = styled.div`
     rgba(179, 101, 202, 0.8),
     rgba(179, 101, 202, 0.3)
   );
-  height: 15rem;
-  width: 15rem;
+  height: 12rem;
+  width: 12rem;
   position: absolute;
   border-radius: 15rem;
   left: 15%;
+`;
+
+export const Button = styled.button`
+  background: linear-gradient(
+    to right top,
+    #060606,
+    rgba(179, 101, 202, 0.3)
+  );
+  height: 5rem;
+  width: 5rem;
+  position: absolute;
+  border-radius: 5rem;
+  left: 15%;
+  color:white;
+`;
+
+export const Text = styled.p`
+  font-size:25px;
+  color:white;
+  padding-right:10px;
+
 `;

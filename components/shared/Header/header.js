@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Div, DropdownContent, UL, LI } from "./HeaderStyle";
+import { Div, DropdownContent, UL, LI, Button, DivImg } from "./HeaderStyle";
 import Image from "next/image";
 import withApollo from "../../../hoc/withApollo";
 import { useLazyGetUser } from "../../../apollo/actions";
@@ -12,7 +12,6 @@ const AppLink = ({ children, className, href }) => (
 );
 
 const Header = () => {
-
   const [user, setUser] = useState(null);
   const [isActive, setIsActive] = useState(false);
   const [hasResponse, setHasResponse] = useState(false);
@@ -41,23 +40,27 @@ const Header = () => {
     <>
       <Div>
         <AppLink href="/">
-          <Image src="/logo.svg" alt="logo" width={185} height={120}/>
+          <Image src="/logo.svg" alt="logo" width={185} height={120} />
         </AppLink>
+        <div style={{display:"flex", justifyContent:"space-around", width:'20%', marginLeft:"15%"}}>
         <AppLink href="/meals">
-         <button>Meals</button>
+          <Button>Meals</Button>
         </AppLink>
-        <img
-          onClick={handleDropdown}
-          src="https://res.cloudinary.com/dioxrnste/image/upload/v1622195447/logo/hamburger_felbpi.png"
-          alt="hamburger"
-          style={{
-            width: "40px",
-            display: "flex",
-            position: "absolute",
-            right: "5%",
-            top: "5%",
-          }}
-        />
+
+        <AppLink href="/food">
+          <Button>Food</Button>
+        </AppLink>
+        </div>
+        <DivImg>
+          <Image
+            onClick={handleDropdown}
+            src="/hamburger.png"
+            alt="hamburger"
+            width={50}
+            height={50}
+          />
+        </DivImg>
+
         {hasResponse && (
           <>
             {isActive && (
@@ -72,9 +75,10 @@ const Header = () => {
                         <AppLink href="/">Edit accont</AppLink>
                       </LI>
                     )}
-                     {user && user.role === "admin" && (
+                    {user && user.role === "admin" && (
                       <LI>
-                        <AppLink href="/meals">Meals</AppLink>
+                        TODO:Kreirati page za pregled usera
+                        <AppLink href="/">All users</AppLink>
                       </LI>
                     )}
                   </UL>

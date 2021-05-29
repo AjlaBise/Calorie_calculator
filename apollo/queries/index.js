@@ -46,7 +46,8 @@ export const GET_MEALS = gql`
       user_id
       serving_size
       calories
-    }
+    } 
+
   }
 `;
 

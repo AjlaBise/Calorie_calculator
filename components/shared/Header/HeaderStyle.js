@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  color: #7f229a;
+  color: white;
   font-size: 18px;
   padding-right: 8px;
   font-family: "Courgette", cursive;
@@ -9,16 +9,22 @@ export const Button = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-
+  position: absolute;
+  top: 10vh;
+  padding-left: 20px;
   &:hover {
     color: black;
   }
 `;
-export const ImageMenu = styled.img`
-  display: flex;
+export const DivImg = styled.div`
+   border: 0;
+  color: #333;
+  cursor: pointer;
+  outline: 0;
+  font-size: 40px;
   position: absolute;
-  right: 5%;
-  top: 5%;
+  top: 40px;
+  right: 40px;
 `;
 
 export const Div = styled.div`
@@ -29,7 +35,7 @@ export const Div = styled.div`
   box-shadow: 5px 10px 12px #6e6c6f4d;
   border: none;
   display: block;
-  white-space: none;
+
 `;
 
 export const DropdownContent = styled.div`
@@ -55,7 +61,7 @@ export const UL = styled.ul`
 `;
 export const LI = styled.li`
   padding: 15px 12px;
-  z-index:999;
+  z-index: 999;
   font-family: "Courgette", cursive;
   &:hover {
     background-color: rgba(0, 0, 0, 0.14);

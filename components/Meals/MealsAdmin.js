@@ -1,4 +1,11 @@
-import { MainWrapper, Wrapper, Circle1, Circle2 } from "./MealsStyle";
+import {
+  MainWrapper,
+  Wrapper,
+  Circle1,
+  Circle2,
+  Button,
+  Text,
+} from "./MealsStyle";
 import { useGetAllMeals } from "../../apollo/actions";
 import { useState, useEffect } from "react";
 
@@ -33,18 +40,22 @@ const AllMeals = () => {
 
   return (
     <MainWrapper>
-      <Circle1 />
-      <Circle2 />
+      <Circle1>
+        <Button onClick={handleNext} disabled={disabledNext}>
+          Next ↪
+        </Button>
+      </Circle1>
+      <Circle2>
+        <Button onClick={handlePrevious} disabled={disabledPrevious}>
+          Previous ↩
+        </Button>
+      </Circle2>
       <Wrapper>
-        <p>{data && data.mealsAll[current].id}</p>
-        <p>{data && data.mealsAll[current].calories}</p>
-        <button onClick={handlePrevious} disabled={disabledPrevious}>
-          lijevo
-        </button>
+        <Text> ✎ Serving size: </Text>
+        <Text>{data && data.mealsAll[current].serving_size}</Text>
 
-        <button onClick={handleNext} disabled={disabledNext}>
-          desno
-        </button>
+        <Text>⋮⋮⋮  Calories : </Text>
+        <Text>{data && data.mealsAll[current].calories}</Text>
       </Wrapper>
     </MainWrapper>
   );

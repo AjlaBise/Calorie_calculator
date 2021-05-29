@@ -53,7 +53,7 @@ exports.mealsTypes = `
         serving_size:String
         calories:String
 
-    }
+    } 
 
   
 `;
