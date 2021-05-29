@@ -16,6 +16,14 @@ exports.foodQueries = {
   },
 };
 
+exports.foodMutations = {
+  createFood: async (root, { input }, ctx) => {
+    const createFood = await ctx.models.Food.createFood(input);
+    return createFood;
+  },
+};
+
+
 exports.mealsMutations = {
   createMeals: async (root, { input }, ctx) => {
     const createMeals = await ctx.models.Meals.createMeals(input);

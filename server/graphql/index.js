@@ -8,13 +8,13 @@ const {
   userQueries,
   mealsQueries,
   mealsMutations,
-  foodQueries
+  foodQueries,
+  foodMutations,
 } = require("../graphql/resolvers");
 
 const User = require("./models/user");
 const Meals = require("./models/melas");
 const Food = require("./models/food");
-
 
 const typeDefs = gql(`
        ${userTypes}
@@ -32,17 +32,19 @@ const typeDefs = gql(`
           signIn(input : signInInput): User
           signOut: Boolean
           createMeals(input:MealsInput):Meals
+          createFood(input: FoodInput):Food
       }`);
 
 const resolvers = {
   Query: {
     ...userQueries,
     ...mealsQueries,
-    ...foodQueries
+    ...foodQueries,
   },
   Mutation: {
     ...userMutations,
     ...mealsMutations,
+    ...foodMutations
   },
 };
 

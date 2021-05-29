@@ -5,7 +5,6 @@ const MealsWrapper = () => {
     <MainWrapper>
       <Circle1 />
       <Circle2 />
-
       <Wrapper>
         <h1>Nesto kao pravmo</h1>
       </Wrapper>

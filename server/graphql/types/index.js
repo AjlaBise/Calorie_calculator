@@ -30,6 +30,15 @@ exports.foodTypes = `
          carbs:String
          fat:String
     }   
+    input FoodInput {
+        name:String
+        image:String
+        serving_size:String
+        calories:String
+        proteins:String
+        carbs:String
+        fat:String
+    }
 `;
 
 exports.mealsTypes = `

@@ -50,25 +50,26 @@ export const GET_MEALS = gql`
 `;
 
 export const CREATE_MEALS = gql`
-mutation CreateMeals(
-  $serving_size: String, 
-  $calories: String
-  $user_id:User
-  $food_id:Food
-  
+  mutation CreateMeals(
+    $serving_size: String
+    $calories: String
+    $user_id: User
+    $food_id: Food
   ) {
-  createMeals(input: { 
-    serving_size: $serving_size, 
-    calories: $calories 
-    user_id: $user_id
-    food_id: $food_id
-  }) {
-    serving_size
-    calories
-    user_id
-    food_id
+    createMeals(
+      input: {
+        serving_size: $serving_size
+        calories: $calories
+        user_id: $user_id
+        food_id: $food_id
+      }
+    ) {
+      serving_size
+      calories
+      user_id
+      food_id
+    }
   }
-}
 `;
 
 //FOOD------
@@ -79,6 +80,37 @@ export const GET_FOODS = gql`
       id
       name
       image
+      serving_size
+      calories
+      proteins
+      carbs
+      fat
+    }
+  }
+`;
+
+export const CREATE_FOOD = gql`
+  mutation CreateFood(
+    $name: String
+    $image: String
+    $serving_size: String
+    $calories: String
+    $proteins: String
+    $carbs: String
+    $fat: String
+  ) {
+    createFood(
+      input: {
+        name: $name
+        image: $image
+        serving_size: $serving_size
+        calories: $calories
+        proteins: $proteins
+        carbs: $carbs
+        fat: $fat
+      }
+    ) {
+      name
       serving_size
       calories
       proteins
