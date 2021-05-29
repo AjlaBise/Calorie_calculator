@@ -17,7 +17,7 @@ export const Button = styled.button`
   }
 `;
 export const DivImg = styled.div`
-   border: 0;
+  border: 0;
   color: #333;
   cursor: pointer;
   outline: 0;
@@ -35,7 +35,6 @@ export const Div = styled.div`
   box-shadow: 5px 10px 12px #6e6c6f4d;
   border: none;
   display: block;
-
 `;
 
 export const DropdownContent = styled.div`
@@ -67,4 +66,11 @@ export const LI = styled.li`
     background-color: rgba(0, 0, 0, 0.14);
     cursor: pointer;
   }
+`;
+
+export const DivBtn = styled.div`
+  display: "flex";
+  justify-content: "space-around";
+  width: "20%";
+  margin-left: "15%";
 `;

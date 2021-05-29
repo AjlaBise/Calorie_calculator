@@ -1,5 +1,13 @@
 import { useState, useEffect } from "react";
-import { Div, DropdownContent, UL, LI, Button, DivImg } from "./HeaderStyle";
+import {
+  Div,
+  DropdownContent,
+  UL,
+  LI,
+  Button,
+  DivImg,
+  DivBtn,
+} from "./HeaderStyle";
 import Image from "next/image";
 import withApollo from "../../../hoc/withApollo";
 import { useLazyGetUser } from "../../../apollo/actions";
@@ -36,28 +44,14 @@ const Header = () => {
       setHasResponse(true);
     }
   }
+
   return (
     <>
       <Div>
         <AppLink href="/">
           <Image src="/logo.svg" alt="logo" width={185} height={120} />
         </AppLink>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-around",
-            width: "20%",
-            marginLeft: "15%",
-          }}
-        >
-          <AppLink href="/meals">
-            <Button>Meals</Button>
-          </AppLink>
 
-          <AppLink href="/food">
-            <Button>Food</Button>
-          </AppLink>
-        </div>
         <DivImg>
           <Image
             onClick={handleDropdown}
@@ -70,6 +64,17 @@ const Header = () => {
 
         {hasResponse && (
           <>
+            {user && (
+              <DivBtn>
+                <AppLink href="/meals">
+                  <Button>Meals</Button>
+                </AppLink>
+
+                <AppLink href="/food">
+                  <Button>Food</Button>
+                </AppLink>
+              </DivBtn>
+            )}
             {isActive && (
               <DropdownContent>
                 {user && (
