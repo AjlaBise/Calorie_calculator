@@ -22,7 +22,7 @@ function FoodForm({ onSubmit }) {
 
         <Div>
           <label>Name</label>
-          <Input {...register("name")} type="name" id="name" />
+          <Input {...register("name")} type="text" id="name" />
 
           <label>serving_size</label>
           <InputNum

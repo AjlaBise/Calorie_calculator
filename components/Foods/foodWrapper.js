@@ -1,5 +1,6 @@
 import withApollo from "../../hoc/withApollo";
-import { WrapperMain } from "./foodWrapperStyle";
+import withAuth from "../../hoc/withAuth";
+import { WrapperMain, ButtonAdd, DivFood } from "./foodWrapperStyle";
 import { useGetFoods } from "../../apollo/actions";
 import FoodCard from "./FoodCard/foodCard";
 import Link from "next/link";
@@ -10,27 +11,22 @@ const AppLink = ({ children, className, href }) => (
   </Link>
 );
 
-const FoodWrapper = () => {
+const FoodWrapper = (props) => {
   const { data } = useGetFoods();
   const foods = (data && data.food) || [];
 
   return (
     <WrapperMain>
-
       <AppLink href="/food/new">
-        <button>Add new food</button>
+        <ButtonAdd>Add new food</ButtonAdd>
       </AppLink>
-
-      {foods.map((food) => {
-        return (
-          <div key={food._id}>
-            <FoodCard food={food} />
-          </div>
-        );
-      })}
-      
+      <DivFood>
+        {foods.map((food) => {
+          return <FoodCard food={food} setMeal={props.setMeal} />;
+        })}
+      </DivFood>
     </WrapperMain>
   );
 };
 
-export default withApollo(FoodWrapper);
+export default withApollo(withAuth(FoodWrapper, ["admin", "regular"]));

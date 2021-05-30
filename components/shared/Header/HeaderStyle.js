@@ -9,9 +9,7 @@ export const Button = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  position: absolute;
-  top: 10vh;
-  padding-left: 20px;
+  padding-left: 15px;
   &:hover {
     color: black;
   }
@@ -69,8 +67,9 @@ export const LI = styled.li`
 `;
 
 export const DivBtn = styled.div`
-  display: "flex";
-  justify-content: "space-around";
-  width: "20%";
-  margin-left: "15%";
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20%;
+  position:absolute;
+  top:7%;
 `;

@@ -1,5 +1,6 @@
 import { Text, Div, Button } from "./UserCardStyle";
 import { useDeleteUser } from "../../../apollo/actions";
+import Redirect from '../../shared/Redirect';
 
 function UserCard({ user }) {
   const [deleteUser] = useDeleteUser();
@@ -12,6 +13,7 @@ function UserCard({ user }) {
         <Button onClick={() => deleteUser({ variables: { id: user.id } })}>
           ❌ Delete
         </Button>
+        <Redirect to="/user"/>
       </Div>
     </>
   );

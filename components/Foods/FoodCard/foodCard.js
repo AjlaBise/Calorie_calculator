@@ -1,12 +1,9 @@
-import { Wrapper } from "./foodCardStyle";
+import { Wrapper, Button } from "./foodCardStyle";
 
-function FoodCard({ food }) {
-  const onClickButton = () => {
-    console.log(food.proteins);
-  };
+function FoodCard({ food, setMeal }) {
   return (
     <Wrapper>
-      <button onClick={onClickButton}>{food.name}</button>
+      <Button onClick={() => setMeal(food)}>🥣 {food.name}</Button>
     </Wrapper>
   );
 }
