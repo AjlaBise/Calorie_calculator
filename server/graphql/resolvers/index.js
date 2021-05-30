@@ -18,6 +18,10 @@ exports.userMutations = {
   signOut: (root, args, ctx) => {
     return ctx.models.User.signOut(ctx);
   },
+  updateUser: async (root, { id, input }, ctx) => {
+    const updatedUser = await ctx.models.User.updateUser(id, input);
+    return updatedUser;
+  },
   deleteUser: async (root, { id }, ctx) => {
     const deletedUser = await ctx.models.User.DeleteUser(id);
     return deletedUser._id;

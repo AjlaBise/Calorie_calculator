@@ -17,6 +17,11 @@ exports.userTypes = `
             email:String!
             password:String!
         }
+
+        input UpdateUserInput{
+            email:String!
+            role:String!
+          }
 `;
 
 exports.foodTypes = `

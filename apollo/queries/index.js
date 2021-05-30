@@ -45,6 +45,26 @@ export const GET_ALL_USERS = gql`
   }
 `;
 
+export const UPDATE_USER = gql`
+  mutation UpdateUser(
+    $id: ID
+  $email:String!
+  $role:String!
+  ) {
+    updateUser(
+      id: $id
+      input: {
+       email:$email
+       role:$role
+      }
+    ) {
+        email
+        role
+        _id
+    }
+  }
+`;
+
 export const DELETE_USER=gql`
 mutation DeleteUser($id:ID){
   deleteUser(id:$id)
