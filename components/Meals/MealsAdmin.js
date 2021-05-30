@@ -10,7 +10,7 @@ import {
 import { useGetAllMeals } from "../../apollo/actions";
 import { useState, useEffect } from "react";
 
-const AllMeals = () => {
+const AllMeals = ({user}) => {
   const { data } = useGetAllMeals();
   {
     console.log(data);
@@ -56,7 +56,7 @@ const AllMeals = () => {
         <Text>🍱 Serving size: {data && data.mealsAll[current].serving_size}</Text>
 
         <Text>⚖️ Calories : {data && data.mealsAll[current].calories}</Text>
-        <Text>👤 User : ovdje ide mail</Text>
+        <Text>👤 User :  {data && data.mealsAll[current].user_id}</Text>
         </DIV>
       </Wrapper>
     </MainWrapper>

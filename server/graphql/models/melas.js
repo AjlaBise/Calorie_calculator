@@ -6,7 +6,6 @@ class Meals {
   }
 
   getMeals(user_id) {
-
     return this.Model.find({user_id});
   }
 

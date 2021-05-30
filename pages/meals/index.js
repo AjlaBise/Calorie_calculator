@@ -32,8 +32,8 @@ const meals = withAuth(() => {
         <>
           {user && (
             <div>
-              {user && user.role === "admin" && <MealsAdmin />}
-              {user && user.role === "regular" && <h1>Nema pejdza</h1>}
+              {user && user.role === "admin" && <MealsAdmin/>}
+              {user && user.role === "regular" && <MealsWrapper user={user}/>}
             </div>
           )}
         </>

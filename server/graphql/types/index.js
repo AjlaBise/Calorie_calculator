@@ -54,6 +54,5 @@ exports.mealsTypes = `
         calories:String
 
     } 
-
   
 `;
