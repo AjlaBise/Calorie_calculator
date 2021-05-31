@@ -10,16 +10,14 @@ class User {
     }
     return null;
   }
-
+  getUserById(_id) {
+    return this.Model.findById({_id});
+  }
   getAllUser() {
     return this.Model.find({});
   }
 
   updateUser(id, data) {
-    if (!this.user || this.user.role !== "admin") {
-      throw new Error("Not Authorised!");
-    }
-
     return this.Model.findOneAndUpdate({ _id: id }, data, {
       new: true,
       runValidators: true,

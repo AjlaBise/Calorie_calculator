@@ -13,8 +13,8 @@ import withApollo from "../../../hoc/withApollo";
 import { useLazyGetUser } from "../../../apollo/actions";
 import Link from "next/link";
 
-const AppLink = ({ children, className, href }) => (
-  <Link href={href}>
+const AppLink = ({ children, className, href, as }) => (
+  <Link href={href} as={as}>
     <a className={className}>{children}</a>
   </Link>
 );
@@ -84,7 +84,9 @@ const Header = () => {
                     </LI>
                     {user && user.role === "regular" && (
                       <LI>
-                        <AppLink href="/">Edit accont</AppLink>
+                        <AppLink href="/[id]" as={`/${user.id}`}>
+                          Edit accont
+                        </AppLink>
                       </LI>
                     )}
                     {user && user.role === "admin" && (

@@ -36,40 +36,47 @@ export const GET_USER = gql`
   }
 `;
 
-export const GET_ALL_USERS = gql`
- query User {
-   users {
+export const GET_USER_BY_ID = gql`
+  query User($id: ID) {
+    user(_id: $id) {
+      _id
       email
-        role
-      }   
-  }
-`;
-
-export const UPDATE_USER = gql`
-  mutation UpdateUser(
-    $id: ID
-  $email:String!
-  $role:String!
-  ) {
-    updateUser(
-      id: $id
-      input: {
-       email:$email
-       role:$role
-      }
-    ) {
-        email
-        role
-        _id
+      role
     }
   }
 `;
 
-export const DELETE_USER=gql`
-mutation DeleteUser($id:ID){
-  deleteUser(id:$id)
-}
-`
+export const GET_ALL_USERS = gql`
+  query User {
+    users {
+      email
+      role
+    }
+  }
+`;
+
+export const UPDATE_USER = gql`
+  mutation UpdateUser($id: ID, 
+    $email: String!, 
+    $password: String!) 
+    {
+    updateUser(
+      id: $id, 
+      input: { 
+        email: $email, 
+        password: $password }) {
+      email
+      password
+      id
+    }
+  }
+`;
+
+export const DELETE_USER = gql`
+  mutation DeleteUser($id: ID) {
+    deleteUser(id: $id)
+  }
+`;
 //MEALS -----
 
 export const GET_MEALS = gql`

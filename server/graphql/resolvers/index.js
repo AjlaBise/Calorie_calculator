@@ -2,6 +2,9 @@ exports.userQueries = {
   user: (root, args, ctx) => {
     return ctx.models.User.getAuthUser(ctx);
   },
+  userById : (root, {_id}, ctx) => {
+    return ctx.models.User.getUserById(_id);
+  },
   users: (root, args, ctx) => {
     return ctx.models.User.getAllUser();
   },

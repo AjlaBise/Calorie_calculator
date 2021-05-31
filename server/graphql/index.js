@@ -23,6 +23,7 @@ const typeDefs = gql(`
 
        type Query {
          user:User
+         userById(_id:ID):User
          users:[User]
          meals(id:ID):[Meals]
          mealsAll:[Meals]

@@ -90,6 +90,7 @@ export const Button = styled.button`
   background: #4c2a56;
   color: white;
   margin-top: 5vh;
+  cursor: pointer;
 
   &:hover {
     border: none;

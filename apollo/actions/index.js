@@ -4,6 +4,7 @@ import {
   SIGN_UP,
   SIGN_OUT,
   GET_USER,
+  GET_USER_BY_ID,
   GET_ALL_USERS,
   UPDATE_USER,
   DELETE_USER,
@@ -39,6 +40,7 @@ export const useSignIn = () =>
 export const useSignOut = () => useMutation(SIGN_OUT);
 export const useLazyGetUser = () => useLazyQuery(GET_USER);
 export const useGetUser = () => useQuery(GET_USER);
+export const useGetUserById=(options)=>useQuery(GET_USER_BY_ID,options)
 export const useGetAllUsers = () => useQuery(GET_ALL_USERS);
 export const useUpdateUser=()=>useMutation(UPDATE_USER)
 

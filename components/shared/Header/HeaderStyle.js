@@ -70,6 +70,6 @@ export const DivBtn = styled.div`
   display: flex;
   justify-content: space-between;
   margin-left: 20%;
-  position:absolute;
-  top:7%;
+  position: absolute;
+  top: 7%;
 `;
