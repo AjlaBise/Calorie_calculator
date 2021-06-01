@@ -8,7 +8,7 @@ import Fade from "@material-ui/core/Fade";
 import { useState } from "react";
 import EditUser from "../EditAccount/index";
 
-function UserCard({ user }) {
+function UserCard({ id,email, role }) {
   const [deleteUser] = useDeleteUser();
   const [updateUser, { error }] = useUpdateUser();
   const classes = useStyles();
@@ -21,32 +21,34 @@ function UserCard({ user }) {
   const handleClose = () => {
     setOpen(false);
   };
-
   const onSubmit = async (data) => {
-    try {
-      if (data) {
-        await updateUser({ variables: { id, ...data } });
-        handleClose();
+    console.log("id", id);
+    if (id) {
+      console.log("id",id);
+      try {
+        if (data) {
+          await updateUser({ variables: { id, ...data } });
+          toast.success("User has been updated", { autoClose: 2000 });
+          handleClose();
+        }
+      } catch {
+        return;
       }
-    } catch {
-      return;
     }
   };
 
   const handleDeleteUser = () => {
     deleteUser({ variables: { id: user.id } });
   };
+
   return (
     <>
-      <Text> 📧 {user.email}</Text>
-      <Text> 💼 {user.role}</Text>
+      <Text> 📧 {email}</Text>
+      <Text> 💼 {role}</Text>
 
       <Div>
         <Button onClick={() => handleOpen()}>✒️ Edit</Button>
-        <Button type="button" onClick={handleDeleteUser}>
-          {" "}
-          ❌ Delete{" "}
-        </Button>
+        <Button type="button" onClick={handleDeleteUser}>❌ Delete</Button>
 
         <Modal
           aria-labelledby="transition-modal-title"

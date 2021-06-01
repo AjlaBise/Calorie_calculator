@@ -29,7 +29,7 @@ class User {
       throw new Error("Not Authorised!");
     }
 
-    return this.Model.findOneAndRemove({ id: id });
+    return this.Model.findOneAndRemove({ _id: id });
   }
 
   async signUp(signUpData) {

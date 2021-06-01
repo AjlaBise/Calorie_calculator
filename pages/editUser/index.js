@@ -14,7 +14,9 @@ const AllUsers = () => {
         {users.map((user) => {
           return (
             <Card>
-              <UserCard key={user.id} user={user} />
+              <UserCard key={user._id} id={user._id}
+              email={user.email}
+              role={user.role} />
             </Card>
           );
         })}

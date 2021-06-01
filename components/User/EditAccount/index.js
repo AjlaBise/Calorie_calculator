@@ -24,7 +24,7 @@ const EditAccount = ({onSubmit}) => {
           <label>Password</label>
           <Input {...register("password")} type="password" id="password" />
 
-          <Button type="submit">Save</Button>
+          <Button type="submit" onClick={()=> console.log("test")} >Save</Button>
         </Div>
       </Form>
     </Wrapper>
