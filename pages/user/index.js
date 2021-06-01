@@ -1,13 +1,27 @@
 import withApollo from "../../hoc/withApollo";
 import withAuth from "../../hoc/withAuth";
-import UserWrapper from "../../components/User/UserWrapper";
+import { useGetAllUsers } from "../../apollo/actions";
+import UserCard from "../../components/User/UserCard/UserCard";
+import { Wrapper, Card } from "../../styles/UserWrapperStyle";
 
-function AllUsers() {
+const AllUsers = () => {
+  const { data } = useGetAllUsers();
+  const users = (data && data.users) || [];
+
   return (
     <div>
-      <UserWrapper />
+      <Wrapper>
+        {users.map((user) => {
+          return (
+            <Card>
+              <UserCard key={user.id} user={user} />
+            </Card>
+          );
+        })}
+      </Wrapper>
+      );
     </div>
   );
-}
+};
 
-export default withApollo(withAuth(AllUsers, "admin"));
+export default withApollo(withAuth(AllUsers, ["admin"]));

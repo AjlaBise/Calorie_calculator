@@ -1,6 +1,6 @@
 import withApollo from "../../hoc/withApollo";
-import FoodWrapper from "../../components/Foods/foodWrapper";
-import FoodForm from "../../components/Foods/foodForm";
+import FoodWrapper from "../../components/Food/foodWrapper";
+import FoodForm from "../../components/Food/foodForm";
 import { useState } from "react";
 import { useCreateMeals } from "../../apollo/actions";
 
