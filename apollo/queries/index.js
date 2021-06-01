@@ -56,15 +56,8 @@ export const GET_ALL_USERS = gql`
 `;
 
 export const UPDATE_USER = gql`
-  mutation UpdateUser($id: ID, 
-    $email: String!, 
-    $password: String!) 
-    {
-    updateUser(
-      id: $id, 
-      input: { 
-        email: $email, 
-        password: $password }) {
+  mutation UpdateUser($id: ID, $email: String!, $password: String!) {
+    updateUser(id: $id, input: { email: $email, password: $password }) {
       email
       password
       id

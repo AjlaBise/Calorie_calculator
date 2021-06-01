@@ -1,4 +1,3 @@
-import { useForm } from "react-hook-form";
 import {
   Wrapper,
   Form,
@@ -8,15 +7,16 @@ import {
   Div,
   Button,
 } from "../../../styles/FormsStyle.js";
+import { useForm } from "react-hook-form";
 
-function RegisterForm({ onSubmit }) {
+const EditUserAccount = ({ onSubmit }) => {
   const { register, handleSubmit } = useForm();
 
   return (
     <Wrapper>
+      <Circle1></Circle1>
+      <Circle2 />
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Circle1></Circle1>
-        <Circle2></Circle2>
         <Div>
           <label>Email</label>
           <Input {...register("email")} type="email" id="email" />
@@ -24,11 +24,11 @@ function RegisterForm({ onSubmit }) {
           <label>Password</label>
           <Input {...register("password")} type="password" id="password" />
 
-          <Button type="submit">SignUp</Button>
+          <Button type="submit">Save</Button>
         </Div>
       </Form>
     </Wrapper>
   );
-}
+};
 
-export default RegisterForm;
+export default EditUserAccount;

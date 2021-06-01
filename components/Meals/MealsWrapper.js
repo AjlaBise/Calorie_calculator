@@ -49,8 +49,10 @@ const MealsWrapper = ({ user }) => {
       </Circle2>
       <Wrapper>
         <DIV>
-          <Text> 📧 {user.email}  📧 </Text>
-          <Text>🍱 Serving size: {data && data.meals[current].serving_size}</Text>
+          <Text> 📧 {user.email} 📧 </Text>
+          <Text>
+            🍱 Serving size: {data && data.meals[current].serving_size}
+          </Text>
           <Text>⚖️ Calories : {data && data.meals[current].calories}</Text>
         </DIV>
       </Wrapper>

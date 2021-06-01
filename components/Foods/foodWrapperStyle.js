@@ -82,5 +82,4 @@ export const DivFood = styled.div`
   border-radius: 2rem;
   padding: 10px;
   margin-top: 3%;
-
 `;

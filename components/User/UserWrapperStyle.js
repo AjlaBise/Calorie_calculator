@@ -6,9 +6,13 @@ export const Wrapper = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 100%;
   height: 100%;
-  background-image:linear-gradient( to top right, #ffffff, rgb(91 28 156 / 32%) );
+  background-image: linear-gradient(
+    to top right,
+    #ffffff,
+    rgb(91 28 156 / 32%)
+  );
   color: white;
-  padding-top:50px;
+  padding-top: 50px;
 `;
 
 export const Card = styled.div`
@@ -22,12 +26,11 @@ export const Card = styled.div`
   margin-bottom: 50px;
   margin-left: 15%;
   margin-top: 5%;
-  color:black;
-  border-radius:2rem;
+  color: black;
+  border-radius: 2rem;
   box-shadow: 15px 10px 15px #6e6c6f4d;
 
-  &:hover{
+  &:hover {
     transform: scale(1.1);
   }
-
 `;

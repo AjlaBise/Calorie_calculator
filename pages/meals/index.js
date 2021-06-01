@@ -6,7 +6,6 @@ import { useLazyGetUser } from "../../apollo/actions";
 import { useState, useEffect } from "react";
 
 const meals = withAuth(() => {
-  
   const [user, setUser] = useState(null);
   const [hasResponse, setHasResponse] = useState(false);
   const [getUser, { data, error }] = useLazyGetUser();
@@ -32,8 +31,8 @@ const meals = withAuth(() => {
         <>
           {user && (
             <div>
-              {user && user.role === "admin" && <MealsAdmin/>}
-              {user && user.role === "regular" && <MealsWrapper user={user}/>}
+              {user && user.role === "admin" && <MealsAdmin />}
+              {user && user.role === "regular" && <MealsWrapper user={user} />}
             </div>
           )}
         </>

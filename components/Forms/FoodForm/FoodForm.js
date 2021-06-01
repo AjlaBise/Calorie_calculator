@@ -9,7 +9,7 @@ import {
   Div,
   Button,
 } from "../../../styles/FormsStyle.js";
-import {InputNum} from './foodStyle';
+import { InputNum } from "./foodStyle";
 
 function FoodForm({ onSubmit }) {
   const { register, handleSubmit } = useForm();

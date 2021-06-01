@@ -1,8 +1,18 @@
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
-import { Div, DivRight, DivLeft, Text, Input, ButtonAdd } from "./foodWrapperStyle";
+import {
+  Div,
+  DivRight,
+  DivLeft,
+  Text,
+  Input,
+  ButtonAdd,
+} from "./foodWrapperStyle";
+import { useCreateMeals } from "../../apollo/actions";
 
 function FoodForm(props) {
+  const [createMeal, { data, error }] = useCreateMeals();
+
   const { register, handleSubmit } = useForm();
 
   const [serving_size, setServing_size] = useState(0);
@@ -14,7 +24,7 @@ function FoodForm(props) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(()=> props.onSubmit)}>
+      <form onSubmit={console.log(data)}>
         <Div>
           <DivLeft>
             <Text>Name: {props.meal && props.meal.name}</Text>

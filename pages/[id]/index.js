@@ -31,9 +31,7 @@ const editAccount = () => {
   }
 
   const onSubmit = async (data) => {
-    console.log("id", id);
     if (id) {
-      console.log("id", id);
       try {
         if (data) {
           await updateUser({ variables: { id, ...data } });

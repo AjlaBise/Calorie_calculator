@@ -12,16 +12,10 @@ const LogOut = ({ apollo }) => {
       apollo.resetStore().then(() => router.push("/login"));
     });
   }, []);
-  
+
   return (
     <>
-      <div className="bwm-form mt-5">
-        <div className="row">
-          <div className="col-md-5 mx-auto">
-            <h1 className="page-title">LogOut</h1>
-          </div>
-        </div>
-      </div>
+      <h1>LogOut</h1>
     </>
   );
 };

@@ -40,9 +40,9 @@ export const useSignIn = () =>
 export const useSignOut = () => useMutation(SIGN_OUT);
 export const useLazyGetUser = () => useLazyQuery(GET_USER);
 export const useGetUser = () => useQuery(GET_USER);
-export const useGetUserById=(options)=>useQuery(GET_USER_BY_ID,options)
+export const useGetUserById = (options) => useQuery(GET_USER_BY_ID, options);
 export const useGetAllUsers = () => useQuery(GET_ALL_USERS);
-export const useUpdateUser=()=>useMutation(UPDATE_USER)
+export const useUpdateUser = () => useMutation(UPDATE_USER);
 
 export const useDeleteUser = () =>
   useMutation(DELETE_USER, {
