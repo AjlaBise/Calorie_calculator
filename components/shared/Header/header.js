@@ -80,7 +80,7 @@ const Header = () => {
                 {user && (
                   <UL>
                     <LI>
-                      <AppLink href="/login">Log Out</AppLink>
+                      <AppLink href="/logout">Log Out</AppLink>
                     </LI>
                     {user && user.role === "regular" && (
                       <LI>

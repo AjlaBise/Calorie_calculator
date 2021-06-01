@@ -13,7 +13,7 @@ import { useCreateMeals } from "../../apollo/actions";
 function FoodForm(props) {
   const [createMeal, { data, error }] = useCreateMeals();
 
-  const { register, handleSubmit } = useForm();
+  const { register} = useForm();
 
   const [serving_size, setServing_size] = useState(0);
   const [calories, setCalories] = useState(0);
@@ -24,7 +24,7 @@ function FoodForm(props) {
 
   return (
     <div>
-      <form onSubmit={console.log(data)}>
+      <form onSubmit={(data) => createMeal({ variables: data })}>
         <Div>
           <DivLeft>
             <Text>Name: {props.meal && props.meal.name}</Text>
