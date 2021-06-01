@@ -84,7 +84,7 @@ const Header = () => {
                     </LI>
                     {user && user.role === "regular" && (
                       <LI>
-                        <AppLink href="/[id]" as={`/${user.id}`}>
+                        <AppLink href="/[id]" as={`/${user._id}`}>
                           Edit accont
                         </AppLink>
                       </LI>

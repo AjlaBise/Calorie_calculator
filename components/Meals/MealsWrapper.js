@@ -11,7 +11,7 @@ import { useGetMeals } from "../../apollo/actions";
 import { useState, useEffect } from "react";
 
 const MealsWrapper = ({ user }) => {
-  const { data } = useGetMeals({ variables: { id: user.id } });
+  const { data } = useGetMeals({ variables: { id: user._id } });
   const [current, setCurrent] = useState(0);
   const [disabledNext, setDisabledNext] = useState(false);
   const [disabledPrevious, setDisabledPrevious] = useState(true);

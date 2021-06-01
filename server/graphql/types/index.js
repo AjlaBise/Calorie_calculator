@@ -1,7 +1,7 @@
 exports.userTypes = `
 
      type User {
-         id:ID,
+         _id:ID,
          email:String,
          password:String
          role:String
@@ -26,7 +26,7 @@ exports.userTypes = `
 
 exports.foodTypes = `
      type Food {
-         id:ID
+         _id:ID
          name:String
          image:String
          serving_size:String
@@ -48,7 +48,7 @@ exports.foodTypes = `
 
 exports.mealsTypes = `
     type Meals {
-        id:ID
+        _id:ID
         food_id:String
         user_id:String
         serving_size:String

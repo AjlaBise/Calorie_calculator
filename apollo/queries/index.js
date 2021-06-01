@@ -9,7 +9,7 @@ export const SIGN_UP = gql`
 export const SIGN_IN = gql`
   mutation SignIn($email: String!, $password: String!) {
     signIn(input: { email: $email, password: $password }) {
-      id
+      _id
       email
       password
       role
@@ -29,7 +29,7 @@ export const SIGN_OUT = gql`
 export const GET_USER = gql`
   query User {
     user {
-      id
+      _id
       email
       role
     }
@@ -38,7 +38,7 @@ export const GET_USER = gql`
 
 export const GET_USER_BY_ID = gql`
   query User($id: ID) {
-    user(_id: $id) {
+    user(id: $id) {
       _id
       email
       role
@@ -60,7 +60,7 @@ export const UPDATE_USER = gql`
     updateUser(id: $id, input: { email: $email, password: $password }) {
       email
       password
-      id
+      _id
     }
   }
 `;
@@ -75,7 +75,7 @@ export const DELETE_USER = gql`
 export const GET_MEALS = gql`
   query Meals($id: ID) {
     meals(id: $id) {
-      id
+      _id
       food_id
       user_id
       serving_size
@@ -87,7 +87,7 @@ export const GET_MEALS = gql`
 export const GET_ALL_MEALS = gql`
   query Meals {
     mealsAll {
-      id
+      _id
       food_id
       user_id
       serving_size
@@ -124,7 +124,7 @@ export const CREATE_MEALS = gql`
 export const GET_FOODS = gql`
   query Food {
     food {
-      id
+      _id
       name
       image
       serving_size
