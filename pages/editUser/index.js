@@ -19,7 +19,6 @@ const AllUsers = () => {
           );
         })}
       </Wrapper>
-      );
     </div>
   );
 };

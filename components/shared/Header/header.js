@@ -91,7 +91,7 @@ const Header = () => {
                     )}
                     {user && user.role === "admin" && (
                       <LI>
-                        <AppLink href="/user">All users</AppLink>
+                        <AppLink href="/editUser">All users</AppLink>
                       </LI>
                     )}
                   </UL>

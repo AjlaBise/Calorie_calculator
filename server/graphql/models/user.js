@@ -49,7 +49,7 @@ class User {
     try {
       ctx.logout();
       return true;
-    } catch (error) {
+    } catch(e) {
       return false;
     }
   }

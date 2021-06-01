@@ -23,17 +23,13 @@ function UserCard({ user }) {
   };
 
   const onSubmit = async (data) => {
-    if (user._id) {
-      console.log(user._id)
-      try {
-        if (data) {
-          await updateUser({ variables: { id, ...data } });
-
-          handleClose();
-        }
-      } catch {
-        return;
+    try {
+      if (data) {
+        await updateUser({ variables: { id, ...data } });
+        handleClose();
       }
+    } catch {
+      return;
     }
   };
 
@@ -47,7 +43,10 @@ function UserCard({ user }) {
 
       <Div>
         <Button onClick={() => handleOpen()}>✒️ Edit</Button>
-        <Button type="button" onClick={handleDeleteUser}> ❌ Delete </Button>
+        <Button type="button" onClick={handleDeleteUser}>
+          {" "}
+          ❌ Delete{" "}
+        </Button>
 
         <Modal
           aria-labelledby="transition-modal-title"
@@ -62,16 +61,7 @@ function UserCard({ user }) {
           }}
         >
           <Fade in={open}>
-            <div className={classes.paper}>
               <EditUser onSubmit={onSubmit} />
-
-              <pre>
-                {error &&
-                  error.graphQLErrors.map(({ message }, i) => (
-                    <Span key={i}>{message}</Span>
-                  ))}
-              </pre>
-            </div>
           </Fade>
         </Modal>
       </Div>
