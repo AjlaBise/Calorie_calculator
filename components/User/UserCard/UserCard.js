@@ -6,7 +6,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { useState } from "react";
-import EditUser from "../formEdit/EditUser";
+import EditUser from "../EditAccount/index";
 
 function UserCard({ user }) {
   const [deleteUser] = useDeleteUser();

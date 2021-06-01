@@ -9,7 +9,7 @@ import {
 } from "../../../styles/FormsStyle.js";
 import { useForm } from "react-hook-form";
 
-const EditAccount = ({onSubmit }) => {
+const EditAccount = ({onSubmit}) => {
   const { register, handleSubmit } = useForm();
 
   return (
