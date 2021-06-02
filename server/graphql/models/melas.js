@@ -2,15 +2,13 @@ class Meals {
   constructor(model, user) {
     this.Model = model;
     this.user = user;
-    this.writeRights = "regular";
   }
 
   getMeals(user_id) {
-    return this.Model.find({user_id});
+    return this.Model.find({ user_id });
   }
 
   getAllMeals() {
-
     return this.Model.find({});
   }
 

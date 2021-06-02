@@ -48,7 +48,7 @@ function FoodForm(props) {
             />
             <Text>Calories: {calories}</Text>
 
-            <ButtonAdd type="submit">Save</ButtonAdd>
+            <ButtonAdd type="button" onClick={() => console.log(data)}>Save</ButtonAdd>
           </DivRight>
         </Div>
       </form>

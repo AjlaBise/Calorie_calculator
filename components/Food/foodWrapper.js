@@ -22,7 +22,7 @@ const FoodWrapper = (props) => {
       </AppLink>
       <DivFood>
         {foods.map((food) => {
-          return <FoodCard food={food} setMeal={props.setMeal} />;
+          return <FoodCard key={food.id} food={food} setMeal={props.setMeal} />;
         })}
       </DivFood>
     </WrapperMain>

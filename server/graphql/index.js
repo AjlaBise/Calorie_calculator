@@ -35,6 +35,7 @@ const typeDefs = gql(`
           signIn(input : signInInput): User
           signOut: Boolean
           updateUser(id:ID,input:UpdateUserInput):User
+          editUser(id:ID,input:UpdateAdminInput):User
           deleteUser(id:ID):ID
           createMeals(id:ID, input:MealsInput):Meals
           createFood(input: FoodInput):Food

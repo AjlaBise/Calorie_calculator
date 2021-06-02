@@ -1,5 +1,5 @@
 import { Text, Div, Button } from "./UserCardStyle";
-import { useDeleteUser, useUpdateUser } from "../../../apollo/actions";
+import { useDeleteUser, useEditUser } from "../../../apollo/actions";
 import Redirect from "../../shared/Redirect";
 import { useStyles } from "../../../styles/ModalStyles";
 import Modal from "@material-ui/core/Modal";
@@ -8,9 +8,9 @@ import Fade from "@material-ui/core/Fade";
 import { useState } from "react";
 import EditUser from "../EditAccount/index";
 
-function UserCard({ id,email, role }) {
+function UserCard({ id, email, role }) {
   const [deleteUser] = useDeleteUser();
-  const [updateUser, { error }] = useUpdateUser();
+  const [editUser, { data, error: err }] = useEditUser();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -24,10 +24,10 @@ function UserCard({ id,email, role }) {
   const onSubmit = async (data) => {
     console.log("id", id);
     if (id) {
-      console.log("id",id);
+      console.log("id", id);
       try {
         if (data) {
-          await updateUser({ variables: { id, ...data } });
+          await editUser({ variables: { id, ...data } });
           toast.success("User has been updated", { autoClose: 2000 });
           handleClose();
         }
@@ -38,7 +38,7 @@ function UserCard({ id,email, role }) {
   };
 
   const handleDeleteUser = () => {
-    deleteUser({ variables: { id: user.id } });
+    deleteUser({ variables: { id: id } });
   };
 
   return (
@@ -48,8 +48,13 @@ function UserCard({ id,email, role }) {
 
       <Div>
         <Button onClick={() => handleOpen()}>✒️ Edit</Button>
-        <Button type="button" onClick={handleDeleteUser}>❌ Delete</Button>
-
+        {data && data.editUser && (
+          <Redirect to="/editUser" query={{ message: "" }} />
+        )}
+        <Button type="button" onClick={handleDeleteUser}>
+          ❌ Delete
+        </Button>
+ 
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
@@ -63,7 +68,7 @@ function UserCard({ id,email, role }) {
           }}
         >
           <Fade in={open}>
-              <EditUser onSubmit={onSubmit} />
+            <EditUser onSubmit={onSubmit} />
           </Fade>
         </Modal>
       </Div>

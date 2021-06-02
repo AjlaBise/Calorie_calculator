@@ -6,6 +6,7 @@ import {
   GET_USER,
   GET_USER_BY_ID,
   GET_ALL_USERS,
+  EDIT_USER,
   UPDATE_USER,
   DELETE_USER,
   GET_MEALS,
@@ -43,6 +44,8 @@ export const useGetUser = () => useQuery(GET_USER);
 export const useGetUserById = (options) => useQuery(GET_USER_BY_ID, options);
 export const useGetAllUsers = () => useQuery(GET_ALL_USERS);
 export const useUpdateUser = () => useMutation(UPDATE_USER);
+export const useEditUser = () => useMutation(EDIT_USER);
+
 
 export const useDeleteUser = () =>
   useMutation(DELETE_USER, {
@@ -87,7 +90,7 @@ export const useCreateMeals = () =>
     update(cache, { data: { createMeals } }) {
       const { meals } = cache.readQuery({ query: GET_MEALS });
       cache.writeQuery({
-        query: CREATE_MEALS,
+        query: GET_MEALS,
         data: { meals: [...meals, createMeals] },
       });
     },

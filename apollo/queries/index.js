@@ -17,7 +17,11 @@ export const SIGN_IN = gql`
   }
 `;
 
-export const SIGN_OUT = gql`mutation SignOut{ signOut }`
+export const SIGN_OUT = gql`
+  mutation SignOut {
+    signOut
+  }
+`;
 
 //Auth queries end ----
 
@@ -62,6 +66,16 @@ export const UPDATE_USER = gql`
   }
 `;
 
+export const EDIT_USER = gql`
+  mutation EditUser($id: ID, $email: String, $role: String) {
+    editUser(id: $id, input: { email: $email, role: $role }) {
+      email
+      role
+      _id
+    }
+  }
+`;
+
 export const DELETE_USER = gql`
   mutation DeleteUser($id: ID) {
     deleteUser(id: $id)
@@ -89,6 +103,17 @@ export const GET_ALL_MEALS = gql`
       user_id
       serving_size
       calories
+      user {
+        email
+      }
+      food {
+        name
+        serving_size
+        calories
+        proteins
+        carbs
+        fat
+      }
     }
   }
 `;

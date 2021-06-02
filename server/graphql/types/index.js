@@ -1,5 +1,4 @@
 exports.userTypes = `
-
      type User {
          _id:ID,
          email:String,
@@ -21,6 +20,10 @@ exports.userTypes = `
         input UpdateUserInput{
             email:String!
             password:String!
+          }
+          input UpdateAdminInput{
+            email:String
+            role:String
           }
 `;
 
@@ -47,17 +50,34 @@ exports.foodTypes = `
 `;
 
 exports.mealsTypes = `
+     
+    type Author {
+        email : String
+    }
+
+    type MealsFood {
+        name: String
+        serving_size:String
+        calories:String
+        proteins:String
+        carbs:String
+        fat:String
+    } 
     type Meals {
         _id:ID
         food_id:String
         user_id:String
         serving_size:String
         calories:String
-    }   
+        user: Author
+        food: MealsFood
+    }
     input MealsInput {
         serving_size:String
         calories:String
 
     } 
+
+   
   
 `;
